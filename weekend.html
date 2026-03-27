@@ -22,15 +22,16 @@
     .topbar-brand{font-family:'Bangers',cursive;font-size:20px;letter-spacing:3px;color:var(--warm-white);text-shadow:2px 2px 0 var(--ink)}
     .topbar-date{font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--warm-white);background:var(--turq);padding:4px 14px;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
 
-    .page{max-width:900px;margin:0 auto;padding:24px 16px 64px;overflow:hidden}
+    .page{max-width:720px;margin:0 auto;padding:24px 16px 64px;overflow:hidden}
 
     .page-header{text-align:center;margin-bottom:28px}
     .page-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(28,20,16,.4);margin-bottom:4px}
     .page-title{font-family:'Bangers',cursive;font-size:clamp(36px,8vw,56px);letter-spacing:3px;color:var(--ink);line-height:1}
 
     /* intel row */
-    .intel-row{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:14px;margin-bottom:28px}
-    @media(max-width:680px){.intel-row{grid-template-columns:1fr}}
+    .intel-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
+    .intel-row>.intel-card.windows{grid-column:1/-1}
+    @media(max-width:500px){.intel-row{grid-template-columns:1fr}.intel-row>.intel-card.windows{grid-column:auto}}
     .intel-card{background:var(--warm-white);border:var(--border);padding:18px 20px;min-width:0;overflow:hidden}
     .intel-card.sat{border-top:5px solid var(--turq)}
     .intel-card.sun{border-top:5px solid var(--avocado)}
@@ -70,16 +71,12 @@
     .mission-meta{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:rgba(28,20,16,.02);border-bottom:1px solid rgba(28,20,16,.05);overflow:hidden}
     .meta-tag{font-family:'Oswald',sans-serif;font-weight:500;font-size:11px;letter-spacing:.5px;padding:4px 12px;display:flex;align-items:center;gap:6px;background:#fff;border:2px solid rgba(28,20,16,.1);min-width:0;word-break:break-word}
     .meta-tag-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(28,20,16,.35);font-weight:700}
-    .mission-body{padding:22px;display:grid;grid-template-columns:1fr 1fr;gap:20px;overflow:hidden}
-    .mission-body>div{min-width:0}
-    @media(max-width:680px){.mission-body{grid-template-columns:1fr}}
+    .mission-body{padding:22px;display:flex;flex-direction:column;gap:18px;overflow:hidden}
     .section-kicker{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--coral);margin-bottom:7px}
     .plan-text{font-size:14px;line-height:1.7;word-break:break-word;overflow-wrap:anywhere}
     .plan-text a,.why-text a,.logistics-list a,.weather-gate-text a,.cal-note a,.intel-detail a{color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px}
     .why-text{font-size:13px;line-height:1.65;color:rgba(28,20,16,.6);font-style:italic;word-break:break-word;overflow-wrap:anywhere}
-    .logistics-block{grid-column:1/-1;border-top:1px dashed rgba(28,20,16,.12);padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;overflow:hidden}
-    .logistics-block>div{min-width:0}
-    @media(max-width:680px){.logistics-block{grid-template-columns:1fr}}
+    .logistics-block{border-top:1px dashed rgba(28,20,16,.12);padding-top:18px;display:flex;flex-direction:column;gap:16px;overflow:hidden}
     .logistics-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:6px}
     .logistics-list li{font-size:13px;line-height:1.5;padding-left:18px;position:relative;color:rgba(28,20,16,.8);word-break:break-word;overflow-wrap:anywhere}
     .logistics-list li::before{content:'◆';position:absolute;left:0;font-size:7px;top:4px}
@@ -96,7 +93,8 @@
     .command-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--turq);margin-bottom:6px}
     .command-title{font-family:'Bangers',cursive;font-size:clamp(32px,6vw,48px);letter-spacing:3px;color:var(--warm-white);text-shadow:2px 2px 0 rgba(0,0,0,.25);margin-bottom:22px}
     .command-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative}
-    @media(max-width:580px){.command-grid{grid-template-columns:1fr}}
+    .command-card{overflow:hidden}
+    @media(max-width:640px){.command-grid{grid-template-columns:1fr}}
     .command-card{background:rgba(253,250,244,.06);border:1px solid rgba(253,250,244,.12);padding:16px;position:relative}
     .command-card-accent{position:absolute;top:0;left:0;right:0;height:3px}
     .command-card:nth-child(1) .command-card-accent{background:var(--coral)}
