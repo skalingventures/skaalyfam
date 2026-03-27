@@ -3,108 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SKAALY FAM — Weekend Mission Briefing</title>
+  <title>SKAALY FAM HQ</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:wght@400;500;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Oswald:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --coral:    #E8553E;
-      --turq:     #2ABFBF;
-      --sand:     #F5EDD6;
-      --avocado:  #7A8C3F;
-      --plum:     #4A2C4E;
-      --ink:      #1C1410;
-      --warm-white: #FDFAF4;
-      --border:   3px solid var(--ink);
+      --coral:       #E8553E;
+      --turq:        #2ABFBF;
+      --sand:        #F5EDD6;
+      --avocado:     #7A8C3F;
+      --plum:        #4A2C4E;
+      --ink:         #1C1410;
+      --warm-white:  #FDFAF4;
+      --border:      3px solid var(--ink);
+      --shadow:      4px 4px 0 var(--ink);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       background-color: var(--sand);
-      background-image:
-        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b99a' fill-opacity='0.18'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b99a' fill-opacity='0.18'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       font-family: 'DM Sans', sans-serif;
       color: var(--ink);
       min-height: 100vh;
     }
 
-    /* ── MASTHEAD ─────────────────────────────────────────── */
+    /* ─────────────────────────────────────────────────────────
+       MASTHEAD
+    ───────────────────────────────────────────────────────── */
     .masthead {
       background: var(--coral);
       position: relative;
       overflow: hidden;
     }
 
-    /* Atomic sunburst behind masthead */
     .masthead::before {
       content: '';
       position: absolute;
-      right: -80px;
-      top: -80px;
-      width: 340px;
-      height: 340px;
-      background: radial-gradient(circle, rgba(245,237,214,0.18) 0%, transparent 65%),
-                  conic-gradient(
-                    from 0deg,
-                    transparent 0deg, rgba(245,237,214,0.12) 5deg,
-                    transparent 10deg, rgba(245,237,214,0.12) 15deg,
-                    transparent 20deg, rgba(245,237,214,0.12) 25deg,
-                    transparent 30deg, rgba(245,237,214,0.12) 35deg,
-                    transparent 40deg, rgba(245,237,214,0.12) 45deg,
-                    transparent 50deg, rgba(245,237,214,0.12) 55deg,
-                    transparent 60deg, rgba(245,237,214,0.12) 65deg,
-                    transparent 70deg, rgba(245,237,214,0.12) 75deg,
-                    transparent 80deg, rgba(245,237,214,0.12) 85deg,
-                    transparent 90deg, rgba(245,237,214,0.12) 95deg,
-                    transparent 100deg, rgba(245,237,214,0.12) 105deg,
-                    transparent 110deg, rgba(245,237,214,0.12) 115deg,
-                    transparent 120deg, rgba(245,237,214,0.12) 125deg,
-                    transparent 130deg, rgba(245,237,214,0.12) 135deg,
-                    transparent 140deg, rgba(245,237,214,0.12) 145deg,
-                    transparent 150deg, rgba(245,237,214,0.12) 155deg,
-                    transparent 160deg, rgba(245,237,214,0.12) 165deg,
-                    transparent 170deg, rgba(245,237,214,0.12) 175deg,
-                    transparent 180deg, rgba(245,237,214,0.12) 185deg,
-                    transparent 190deg, rgba(245,237,214,0.12) 195deg,
-                    transparent 200deg, rgba(245,237,214,0.12) 205deg,
-                    transparent 210deg, rgba(245,237,214,0.12) 215deg,
-                    transparent 220deg, rgba(245,237,214,0.12) 225deg,
-                    transparent 230deg, rgba(245,237,214,0.12) 235deg,
-                    transparent 240deg, rgba(245,237,214,0.12) 245deg,
-                    transparent 250deg, rgba(245,237,214,0.12) 255deg,
-                    transparent 260deg, rgba(245,237,214,0.12) 265deg,
-                    transparent 270deg, rgba(245,237,214,0.12) 275deg,
-                    transparent 280deg, rgba(245,237,214,0.12) 285deg,
-                    transparent 290deg, rgba(245,237,214,0.12) 295deg,
-                    transparent 300deg, rgba(245,237,214,0.12) 305deg,
-                    transparent 310deg, rgba(245,237,214,0.12) 315deg,
-                    transparent 320deg, rgba(245,237,214,0.12) 325deg,
-                    transparent 330deg, rgba(245,237,214,0.12) 335deg,
-                    transparent 340deg, rgba(245,237,214,0.12) 345deg,
-                    transparent 350deg, rgba(245,237,214,0.12) 355deg,
-                    transparent 360deg
-                  );
+      right: -80px; top: -80px;
+      width: 380px; height: 380px;
+      background:
+        radial-gradient(circle, rgba(245,237,214,0.15) 0%, transparent 60%),
+        conic-gradient(from 0deg,
+          transparent 0deg, rgba(245,237,214,0.1) 5deg, transparent 10deg,
+          rgba(245,237,214,0.1) 15deg, transparent 20deg,
+          rgba(245,237,214,0.1) 25deg, transparent 30deg,
+          rgba(245,237,214,0.1) 35deg, transparent 40deg,
+          rgba(245,237,214,0.1) 45deg, transparent 50deg,
+          rgba(245,237,214,0.1) 55deg, transparent 60deg,
+          rgba(245,237,214,0.1) 65deg, transparent 70deg,
+          rgba(245,237,214,0.1) 75deg, transparent 80deg,
+          rgba(245,237,214,0.1) 85deg, transparent 90deg,
+          rgba(245,237,214,0.1) 95deg, transparent 100deg,
+          rgba(245,237,214,0.1) 105deg, transparent 110deg,
+          rgba(245,237,214,0.1) 115deg, transparent 120deg,
+          rgba(245,237,214,0.1) 125deg, transparent 130deg,
+          rgba(245,237,214,0.1) 135deg, transparent 140deg,
+          rgba(245,237,214,0.1) 145deg, transparent 150deg,
+          rgba(245,237,214,0.1) 155deg, transparent 160deg,
+          rgba(245,237,214,0.1) 165deg, transparent 170deg,
+          rgba(245,237,214,0.1) 175deg, transparent 180deg,
+          rgba(245,237,214,0.1) 185deg, transparent 190deg,
+          rgba(245,237,214,0.1) 195deg, transparent 200deg,
+          rgba(245,237,214,0.1) 205deg, transparent 210deg,
+          rgba(245,237,214,0.1) 215deg, transparent 220deg,
+          rgba(245,237,214,0.1) 225deg, transparent 230deg,
+          rgba(245,237,214,0.1) 235deg, transparent 240deg,
+          rgba(245,237,214,0.1) 245deg, transparent 250deg,
+          rgba(245,237,214,0.1) 255deg, transparent 260deg,
+          rgba(245,237,214,0.1) 265deg, transparent 270deg,
+          rgba(245,237,214,0.1) 275deg, transparent 280deg,
+          rgba(245,237,214,0.1) 285deg, transparent 290deg,
+          rgba(245,237,214,0.1) 295deg, transparent 300deg,
+          rgba(245,237,214,0.1) 305deg, transparent 310deg,
+          rgba(245,237,214,0.1) 315deg, transparent 320deg,
+          rgba(245,237,214,0.1) 325deg, transparent 330deg,
+          rgba(245,237,214,0.1) 335deg, transparent 340deg,
+          rgba(245,237,214,0.1) 345deg, transparent 350deg,
+          rgba(245,237,214,0.1) 355deg, transparent 360deg);
       border-radius: 50%;
-    }
-
-    /* Palm tree silhouette accent — left side */
-    .masthead::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 120px;
-      height: 100%;
-      background: rgba(0,0,0,0.06);
-      clip-path: polygon(0 100%, 30% 0%, 60% 100%);
     }
 
     .masthead-inner {
       position: relative;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 32px 24px 28px;
+      padding: 36px 24px 32px;
       text-align: center;
     }
 
@@ -112,76 +99,420 @@
       font-family: 'Oswald', sans-serif;
       font-weight: 500;
       font-size: 11px;
-      letter-spacing: 5px;
-      color: rgba(253,250,244,0.75);
+      letter-spacing: 6px;
+      color: rgba(253,250,244,0.65);
       text-transform: uppercase;
       margin-bottom: 10px;
     }
 
     .masthead-title {
       font-family: 'Bangers', cursive;
-      font-size: clamp(68px, 15vw, 128px);
-      letter-spacing: 6px;
+      font-size: clamp(72px, 16vw, 140px);
+      letter-spacing: 8px;
       color: var(--warm-white);
       text-shadow:
-        3px 3px 0 var(--ink),
+        4px 4px 0 var(--ink),
         -1px -1px 0 var(--ink),
         1px -1px 0 var(--ink),
-        -1px 1px 0 var(--ink);
+        -1px  1px 0 var(--ink);
       line-height: 0.88;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .masthead-rule {
-      width: 80px;
-      height: 3px;
+      width: 80px; height: 3px;
       background: var(--turq);
-      margin: 10px auto;
+      margin: 12px auto;
       border-radius: 2px;
     }
 
     .masthead-subtitle {
       font-family: 'Oswald', sans-serif;
       font-weight: 500;
-      font-size: clamp(12px, 2.5vw, 16px);
-      letter-spacing: 7px;
-      color: rgba(253,250,244,0.8);
+      font-size: clamp(11px, 2.5vw, 15px);
+      letter-spacing: 8px;
+      color: rgba(253,250,244,0.75);
       text-transform: uppercase;
+      margin-bottom: 20px;
     }
 
-    .masthead-date {
-      display: inline-block;
-      margin-top: 16px;
-      background: var(--turq);
-      color: var(--warm-white);
+    /* NAV PILLS */
+    .masthead-nav {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       font-family: 'Oswald', sans-serif;
       font-weight: 700;
-      font-size: 13px;
+      font-size: 11px;
       letter-spacing: 2px;
-      padding: 6px 20px;
       text-transform: uppercase;
+      text-decoration: none;
+      color: var(--warm-white);
+      border: 2px solid rgba(253,250,244,0.35);
+      padding: 8px 18px;
       clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: background 0.15s, border-color 0.15s;
     }
 
-    /* ── DIAGONAL DIVIDER ─────────────────────────────────── */
+    .nav-pill:hover {
+      background: rgba(253,250,244,0.15);
+      border-color: rgba(253,250,244,0.7);
+    }
+
+    .nav-pill.active {
+      background: var(--turq);
+      border-color: var(--turq);
+      color: var(--ink);
+    }
+
+    .nav-pill-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: 0.7;
+    }
+
+    /* DIAGONAL DIVIDER */
     .divider-wrap {
       background: var(--coral);
-      height: 36px;
-      clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+      height: 40px;
+      clip-path: polygon(0 0, 100% 0, 100% 35%, 0 100%);
       margin-bottom: -1px;
     }
 
-    /* ── LAYOUT ───────────────────────────────────────────── */
+    /* ─────────────────────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────────────────────── */
     .page {
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 24px 16px 64px;
+      padding: 32px 16px 80px;
     }
 
-    /* ── WEATHER + WINDOWS ROW ────────────────────────────── */
+    /* SECTION HEADERS */
+    .section-masthead {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: var(--border);
+    }
+
+    .section-icon {
+      width: 48px; height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .section-title-group { flex: 1; }
+
+    .section-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: rgba(28,20,16,0.4);
+      margin-bottom: 2px;
+    }
+
+    .section-title {
+      font-family: 'Bangers', cursive;
+      font-size: clamp(30px, 6vw, 44px);
+      letter-spacing: 3px;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .section-badge {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 2px;
+      padding: 6px 16px;
+      text-transform: uppercase;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      white-space: nowrap;
+    }
+
+    .section-sep {
+      border: none;
+      border-top: 1px dashed rgba(28,20,16,0.15);
+      margin: 40px 0;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       WEEK AHEAD
+    ───────────────────────────────────────────────────────── */
+    #week-ahead { scroll-margin-top: 24px; }
+
+    /* COVERAGE STRIP */
+    .coverage-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 580px) {
+      .coverage-strip { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    }
+
+    .coverage-cell {
+      text-align: center;
+      padding: 10px 6px;
+      border: var(--border);
+      background: var(--warm-white);
+      position: relative;
+    }
+
+    .coverage-cell-day {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(28,20,16,0.4);
+      margin-bottom: 5px;
+    }
+
+    .coverage-cell-status {
+      font-family: 'Bangers', cursive;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+
+    .coverage-cell.covered   { border-top: 4px solid var(--avocado); }
+    .coverage-cell.uncovered { border-top: 4px solid var(--coral); }
+    .coverage-cell.partial   { border-top: 4px solid #E8A23E; }
+    .coverage-cell.clear     { border-top: 4px solid var(--turq); }
+
+    .coverage-cell.covered   .coverage-cell-status { color: var(--avocado); }
+    .coverage-cell.uncovered .coverage-cell-status { color: var(--coral); }
+    .coverage-cell.partial   .coverage-cell-status { color: #C07A10; }
+    .coverage-cell.clear     .coverage-cell-status { color: var(--turq); }
+
+    /* DAY CARDS */
+    .week-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .week-grid { grid-template-columns: 1fr; }
+    }
+
+    .day-card {
+      background: var(--warm-white);
+      border: var(--border);
+      overflow: hidden;
+    }
+
+    .day-card.weekend {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    @media (max-width: 640px) {
+      .day-card.weekend { grid-template-columns: 1fr; }
+    }
+
+    .day-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px 10px;
+      border-bottom: 2px solid rgba(28,20,16,0.07);
+    }
+
+    .day-header-left {}
+
+    .day-name {
+      font-family: 'Bangers', cursive;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .day-date {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: rgba(28,20,16,0.4);
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    .day-status-badge {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
+    }
+
+    .status-CLEAR    { background: rgba(42,191,191,0.15); color: var(--turq); }
+    .status-FLAG     { background: rgba(232,85,62,0.15);  color: var(--coral); }
+    .status-COVERED  { background: rgba(122,140,63,0.15); color: var(--avocado); }
+    .status-WATCH    { background: rgba(232,162,62,0.15); color: #C07A10; }
+
+    .day-body {
+      padding: 12px 16px 14px;
+    }
+
+    .day-events {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 8px;
+    }
+
+    .day-event {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink);
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .day-event::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      font-size: 9px;
+      top: 3px;
+      color: var(--coral);
+    }
+
+    .day-event-label {
+      font-size: 9px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 1px 6px;
+      border-radius: 2px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    .label-Kjael    { background: rgba(42,191,191,0.15);  color: #1A9090; }
+    .label-KjaelSV  { background: rgba(42,191,191,0.1);   color: #1A9090; }
+    .label-KjaelSC  { background: rgba(42,191,191,0.1);   color: #1A9090; }
+    .label-Mardee   { background: rgba(232,85,62,0.12);   color: #C03020; }
+    .label-KM       { background: rgba(74,44,78,0.12);    color: var(--plum); }
+    .label-Sitters  { background: rgba(122,140,63,0.15);  color: #5A6B20; }
+    .label-School   { background: rgba(232,162,62,0.15);  color: #C07A10; }
+
+    .day-note {
+      font-size: 12px;
+      color: rgba(28,20,16,0.55);
+      font-style: italic;
+      line-height: 1.5;
+      padding-top: 7px;
+      border-top: 1px dashed rgba(28,20,16,0.12);
+    }
+
+    .day-clear {
+      font-size: 13px;
+      color: rgba(28,20,16,0.3);
+      font-style: italic;
+    }
+
+    /* Weekend divider inside weekend card */
+    .weekend-day {
+      padding: 0;
+    }
+
+    .weekend-day + .weekend-day {
+      border-left: 2px solid rgba(28,20,16,0.08);
+    }
+
+    @media (max-width: 640px) {
+      .weekend-day + .weekend-day {
+        border-left: none;
+        border-top: 2px solid rgba(28,20,16,0.08);
+      }
+    }
+
+    /* FLAGS */
+    .flags-panel {
+      background: var(--ink);
+      border: var(--border);
+      padding: 20px 24px;
+      margin-bottom: 0;
+    }
+
+    .flags-eyebrow {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+    }
+
+    .flags-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .flags-list li {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(253,250,244,0.82);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .flags-list li::before {
+      content: '!';
+      position: absolute;
+      left: 0;
+      font-family: 'Bangers', cursive;
+      font-size: 14px;
+      color: var(--coral);
+      line-height: 1.2;
+    }
+
+    .flags-empty {
+      font-size: 13px;
+      color: rgba(253,250,244,0.35);
+      font-style: italic;
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       WEEKEND PLANNER
+    ───────────────────────────────────────────────────────── */
+    #weekend-planner { scroll-margin-top: 24px; }
+
+    /* INTEL ROW */
     .intel-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1.1fr;
+      grid-template-columns: 1fr 1fr 1.2fr;
       gap: 14px;
       margin-bottom: 28px;
     }
@@ -194,11 +525,10 @@
       background: var(--warm-white);
       border: var(--border);
       padding: 18px 20px;
-      position: relative;
     }
 
-    .intel-card.sat { border-top: 5px solid var(--turq); }
-    .intel-card.sun { border-top: 5px solid var(--avocado); }
+    .intel-card.sat     { border-top: 5px solid var(--turq); }
+    .intel-card.sun     { border-top: 5px solid var(--avocado); }
     .intel-card.windows { border-top: 5px solid var(--coral); }
 
     .intel-label {
@@ -207,7 +537,7 @@
       font-size: 9px;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: rgba(28,20,16,0.4);
+      color: rgba(28,20,16,0.35);
       margin-bottom: 6px;
     }
 
@@ -215,7 +545,6 @@
       font-family: 'Bangers', cursive;
       font-size: 30px;
       letter-spacing: 2px;
-      color: var(--ink);
       line-height: 1;
       margin-bottom: 8px;
     }
@@ -238,14 +567,12 @@
 
     .intel-detail {
       font-size: 13px;
-      color: rgba(28,20,16,0.7);
+      color: rgba(28,20,16,0.65);
       line-height: 1.7;
     }
 
-    .window-entry {
-      margin-bottom: 12px;
-    }
-    .window-entry:last-child { margin-bottom: 0; }
+    .window-entry { margin-bottom: 12px; }
+    .window-entry:last-of-type { margin-bottom: 0; }
 
     .window-day-label {
       font-family: 'Oswald', sans-serif;
@@ -259,7 +586,6 @@
 
     .window-time {
       font-size: 13px;
-      color: var(--ink);
       line-height: 1.5;
     }
 
@@ -268,11 +594,11 @@
       padding-top: 10px;
       border-top: 1px dashed rgba(28,20,16,0.15);
       font-size: 11px;
-      color: rgba(28,20,16,0.45);
+      color: rgba(28,20,16,0.4);
       font-style: italic;
     }
 
-    /* ── MISSION PANELS ───────────────────────────────────── */
+    /* MISSION PANELS */
     .missions {
       display: flex;
       flex-direction: column;
@@ -284,17 +610,15 @@
       background: var(--warm-white);
       border: var(--border);
       overflow: hidden;
-      position: relative;
     }
 
-    /* Colored left accent bar */
     .mission-panel.outdoor  { border-left: 8px solid var(--turq); }
     .mission-panel.intown   { border-left: 8px solid var(--avocado); }
     .mission-panel.basecamp { border-left: 8px solid var(--plum); }
 
     .mission-header {
       padding: 20px 22px 16px;
-      border-bottom: 2px solid rgba(28,20,16,0.08);
+      border-bottom: 2px solid rgba(28,20,16,0.07);
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -313,6 +637,7 @@
       text-transform: uppercase;
       margin-bottom: 5px;
     }
+
     .outdoor  .mission-type-label { color: var(--turq); }
     .intown   .mission-type-label { color: var(--avocado); }
     .basecamp .mission-type-label { color: var(--plum); }
@@ -325,12 +650,10 @@
       color: var(--ink);
     }
 
-    /* Atomic starburst number badge */
     .mission-badge {
       flex-shrink: 0;
       position: relative;
-      width: 56px;
-      height: 56px;
+      width: 56px; height: 56px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -339,8 +662,7 @@
     .mission-badge svg {
       position: absolute;
       inset: 0;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
     }
 
     .mission-badge-num {
@@ -358,7 +680,7 @@
       gap: 8px;
       padding: 12px 22px;
       background: rgba(28,20,16,0.02);
-      border-bottom: 1px solid rgba(28,20,16,0.06);
+      border-bottom: 1px solid rgba(28,20,16,0.05);
     }
 
     .meta-tag {
@@ -371,14 +693,14 @@
       align-items: center;
       gap: 6px;
       background: #fff;
-      border: 2px solid rgba(28,20,16,0.12);
+      border: 2px solid rgba(28,20,16,0.1);
     }
 
     .meta-tag-label {
       font-size: 9px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(28,20,16,0.4);
+      color: rgba(28,20,16,0.35);
       font-weight: 700;
     }
 
@@ -406,19 +728,18 @@
     .plan-text {
       font-size: 14px;
       line-height: 1.7;
-      color: var(--ink);
     }
 
     .why-text {
       font-size: 13px;
       line-height: 1.65;
-      color: rgba(28,20,16,0.65);
+      color: rgba(28,20,16,0.6);
       font-style: italic;
     }
 
     .logistics-block {
       grid-column: 1 / -1;
-      border-top: 1px dashed rgba(28,20,16,0.15);
+      border-top: 1px dashed rgba(28,20,16,0.12);
       padding-top: 18px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -453,6 +774,7 @@
       font-size: 7px;
       top: 4px;
     }
+
     .outdoor  .logistics-list li::before { color: var(--turq); }
     .intown   .logistics-list li::before { color: var(--avocado); }
     .basecamp .logistics-list li::before { color: var(--plum); }
@@ -474,11 +796,11 @@
 
     .weather-gate-text {
       font-size: 12px;
-      color: rgba(253,250,244,0.82);
+      color: rgba(253,250,244,0.8);
       line-height: 1.55;
     }
 
-    /* ── COMMAND PANEL ────────────────────────────────────── */
+    /* COMMAND PANEL */
     .command-panel {
       background: var(--plum);
       border: var(--border);
@@ -487,28 +809,23 @@
       overflow: hidden;
     }
 
-    /* Boomerang shape accent */
     .command-panel::before {
       content: '';
       position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 260px;
-      height: 260px;
+      right: -60px; top: -60px;
+      width: 280px; height: 280px;
       border-radius: 100% 0 100% 0;
-      background: rgba(42,191,191,0.1);
+      background: rgba(42,191,191,0.08);
       transform: rotate(45deg);
     }
 
     .command-panel::after {
       content: '';
       position: absolute;
-      right: -20px;
-      top: -20px;
-      width: 140px;
-      height: 140px;
+      right: -20px; top: -20px;
+      width: 150px; height: 150px;
       border-radius: 100% 0 100% 0;
-      background: rgba(42,191,191,0.07);
+      background: rgba(42,191,191,0.05);
       transform: rotate(45deg);
     }
 
@@ -527,7 +844,7 @@
       font-size: clamp(32px, 6vw, 48px);
       letter-spacing: 3px;
       color: var(--warm-white);
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
       margin-bottom: 22px;
     }
 
@@ -544,18 +861,17 @@
 
     .command-card {
       background: rgba(253,250,244,0.06);
-      border: 1px solid rgba(253,250,244,0.15);
+      border: 1px solid rgba(253,250,244,0.12);
       padding: 16px;
       position: relative;
     }
 
     .command-card-accent {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       height: 3px;
     }
+
     .command-card:nth-child(1) .command-card-accent { background: var(--coral); }
     .command-card:nth-child(2) .command-card-accent { background: var(--turq); }
     .command-card:nth-child(3) .command-card-accent { background: var(--avocado); }
@@ -566,7 +882,7 @@
       font-size: 9px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: rgba(253,250,244,0.45);
+      color: rgba(253,250,244,0.4);
       margin-bottom: 8px;
       margin-top: 6px;
     }
@@ -582,22 +898,24 @@
 
     .command-card-why {
       font-size: 12px;
-      color: rgba(253,250,244,0.65);
+      color: rgba(253,250,244,0.6);
       line-height: 1.5;
     }
 
-    /* ── FOOTER ───────────────────────────────────────────── */
+    /* ─────────────────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────────────────── */
     .footer {
       text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(28,20,16,0.12);
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(28,20,16,0.1);
     }
 
     .footer-logo {
       font-family: 'Bangers', cursive;
-      font-size: 20px;
-      letter-spacing: 3px;
+      font-size: 22px;
+      letter-spacing: 4px;
       color: var(--coral);
       margin-bottom: 4px;
     }
@@ -606,21 +924,45 @@
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(28,20,16,0.3);
+      color: rgba(28,20,16,0.25);
+    }
+
+    /* ─────────────────────────────────────────────────────────
+       STALE STATE (when one section hasn't run yet)
+    ───────────────────────────────────────────────────────── */
+    .stale-notice {
+      background: rgba(28,20,16,0.04);
+      border: 2px dashed rgba(28,20,16,0.12);
+      padding: 24px;
+      text-align: center;
+      color: rgba(28,20,16,0.35);
+      font-style: italic;
+      font-size: 14px;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- MASTHEAD -->
+  <!-- ══════════════════════════════════════════════════════
+       MASTHEAD
+  ═══════════════════════════════════════════════════════ -->
   <header class="masthead">
     <div class="masthead-inner">
-      <div class="masthead-eyebrow">Weekly Mission Briefing</div>
+      <div class="masthead-eyebrow">Family Intelligence HQ</div>
       <div class="masthead-title">SKAALY FAM</div>
       <div class="masthead-rule"></div>
-      <div class="masthead-subtitle">Weekend Intelligence Report</div>
-      <div class="masthead-date">March 28–29, 2026</div>
+      <div class="masthead-subtitle">Odie · Mazzy · Kjael · Mardee</div>
+      <nav class="masthead-nav">
+        <a href="#week-ahead" class="nav-pill">
+          <span class="nav-pill-dot"></span>
+          Week Ahead
+        </a>
+        <a href="#weekend-planner" class="nav-pill active">
+          <span class="nav-pill-dot"></span>
+          Weekend Missions
+        </a>
+      </nav>
     </div>
   </header>
 
@@ -628,222 +970,397 @@
 
   <div class="page">
 
-    <!-- INTEL ROW: weather + windows -->
-    <div class="intel-row">
+    <!-- ══════════════════════════════════════════════════
+         WEEK AHEAD
+    ═══════════════════════════════════════════════════ -->
+    <section id="week-ahead">
 
-      <div class="intel-card sat">
-        <div class="intel-label">Saturday Weather</div>
-        <div class="intel-day">SATURDAY</div>
-        <span class="weather-badge GREAT">Great</span>
-        <div class="intel-detail">
-          High 62° / Low 41°<br>
-          5% rain · 8 mph wind
+      <div class="section-masthead">
+        <div class="section-icon">📋</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Auto-generated Sunday evening</div>
+          <div class="section-title">WEEK AHEAD</div>
+        </div>
+        <div class="section-badge" style="background:var(--ink);color:var(--sand);">
+          WEEK_LABEL_PLACEHOLDER
         </div>
       </div>
 
-      <div class="intel-card sun">
-        <div class="intel-label">Sunday Weather</div>
-        <div class="intel-day">SUNDAY</div>
-        <span class="weather-badge GOOD">Good</span>
-        <div class="intel-detail">
-          High 55° / Low 38°<br>
-          20% rain · 12 mph wind
+      <!-- COVERAGE STRIP -->
+      <div class="coverage-strip">
+        <div class="coverage-cell COVERAGE_MON_CLASS">
+          <div class="coverage-cell-day">Mon</div>
+          <div class="coverage-cell-status">COVERAGE_MON_STATUS</div>
+        </div>
+        <div class="coverage-cell COVERAGE_TUE_CLASS">
+          <div class="coverage-cell-day">Tue</div>
+          <div class="coverage-cell-status">COVERAGE_TUE_STATUS</div>
+        </div>
+        <div class="coverage-cell COVERAGE_WED_CLASS">
+          <div class="coverage-cell-day">Wed</div>
+          <div class="coverage-cell-status">COVERAGE_WED_STATUS</div>
+        </div>
+        <div class="coverage-cell COVERAGE_THU_CLASS">
+          <div class="coverage-cell-day">Thu</div>
+          <div class="coverage-cell-status">COVERAGE_THU_STATUS</div>
+        </div>
+        <div class="coverage-cell COVERAGE_FRI_CLASS">
+          <div class="coverage-cell-day">Fri</div>
+          <div class="coverage-cell-status">COVERAGE_FRI_STATUS</div>
         </div>
       </div>
 
-      <div class="intel-card windows">
-        <div class="intel-label">Open Windows</div>
-        <div class="window-entry">
-          <div class="window-day-label">Saturday</div>
-          <div class="window-time">9:30–11:30 AM<br>3:30–5:30 PM</div>
+      <!-- WEEKDAY CARDS (Mon–Fri, 2-column grid) -->
+      <div class="week-grid">
+
+        <div class="day-card">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-name">Monday</div>
+              <div class="day-date">DAY_MON_DATE</div>
+            </div>
+            <div class="day-status-badge status-DAY_MON_STATUS">DAY_MON_STATUS</div>
+          </div>
+          <div class="day-body">
+            DAY_MON_EVENTS
+            DAY_MON_NOTE
+          </div>
         </div>
-        <div class="window-entry">
-          <div class="window-day-label">Sunday</div>
-          <div class="window-time">9:00–11:00 AM<br>Open afternoon</div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-name">Tuesday</div>
+              <div class="day-date">DAY_TUE_DATE</div>
+            </div>
+            <div class="day-status-badge status-DAY_TUE_STATUS">DAY_TUE_STATUS</div>
+          </div>
+          <div class="day-body">
+            DAY_TUE_EVENTS
+            DAY_TUE_NOTE
+          </div>
         </div>
-        <div class="cal-note">- Saturday 6:00–8:00 PM: BEST BIRTHDAY EVER — Gabs' birthday party. Whole family committed. Plan Saturday morning accordingly — leave a full buffer to get home, clean up, and load everyone for an evening out. Don't overextend the morning.
-- Sunday 11:00 AM–2:45 PM: Amy with Odie — Odie is covered. This is a rare window where one parent can be fully with Mazzy (or solo) without juggling both kids.
-- Sunday 1:00–2:00 PM: Meet with Lynn Diaz overlaps with Amy's shift and Mazzy's afternoon nap. Logistically clean — Odie is with Amy, Mazzy is likely napping, meeting can happen at home or nearby.
-- ⚠️ Saturday's 82°F high is deceptive — the low is 33°F, meaning the morning (your primary window) could be in the 40s–50s. Layer up. This is not a shorts-and-sunscreen morning.
-- ⚠️ Sunday is the better outdoor day by every metric: warmer low (57°F), slightly less wind, 10% precip. If you only do one big outdoor push, make it Sunday afternoon 3–6 PM.</div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-name">Wednesday</div>
+              <div class="day-date">DAY_WED_DATE</div>
+            </div>
+            <div class="day-status-badge status-DAY_WED_STATUS">DAY_WED_STATUS</div>
+          </div>
+          <div class="day-body">
+            DAY_WED_EVENTS
+            DAY_WED_NOTE
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-name">Thursday</div>
+              <div class="day-date">DAY_THU_DATE</div>
+            </div>
+            <div class="day-status-badge status-DAY_THU_STATUS">DAY_THU_STATUS</div>
+          </div>
+          <div class="day-body">
+            DAY_THU_EVENTS
+            DAY_THU_NOTE
+          </div>
+        </div>
+
+        <div class="day-card">
+          <div class="day-header">
+            <div class="day-header-left">
+              <div class="day-name">Friday</div>
+              <div class="day-date">DAY_FRI_DATE</div>
+            </div>
+            <div class="day-status-badge status-DAY_FRI_STATUS">DAY_FRI_STATUS</div>
+          </div>
+          <div class="day-body">
+            DAY_FRI_EVENTS
+            DAY_FRI_NOTE
+          </div>
+        </div>
+
+        <!-- WEEKEND (spans full width) -->
+        <div class="day-card weekend">
+          <div class="weekend-day">
+            <div class="day-header">
+              <div class="day-header-left">
+                <div class="day-name">Saturday</div>
+                <div class="day-date">DAY_SAT_DATE</div>
+              </div>
+              <div class="day-status-badge status-DAY_SAT_STATUS">DAY_SAT_STATUS</div>
+            </div>
+            <div class="day-body">
+              DAY_SAT_EVENTS
+              DAY_SAT_NOTE
+            </div>
+          </div>
+          <div class="weekend-day">
+            <div class="day-header">
+              <div class="day-header-left">
+                <div class="day-name">Sunday</div>
+                <div class="day-date">DAY_SUN_DATE</div>
+              </div>
+              <div class="day-status-badge status-DAY_SUN_STATUS">DAY_SUN_STATUS</div>
+            </div>
+            <div class="day-body">
+              DAY_SUN_EVENTS
+              DAY_SUN_NOTE
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /week-grid -->
+
+      <!-- FLAGS -->
+      <div class="flags-panel">
+        <div class="flags-eyebrow">⚑ This Week's Flags</div>
+        <ul class="flags-list">
+          FLAGS_LIST_PLACEHOLDER
+        </ul>
       </div>
 
-    </div>
+    </section>
 
-    <!-- MISSIONS -->
-    <div class="missions">
+    <hr class="section-sep" />
 
-      <!-- MISSION 1 -->
-      <div class="mission-panel outdoor">
-        <div class="mission-header outdoor">
-          <div>
-            <div class="mission-type-label">Mission 1 — Outdoor Strike</div>
-            <div class="mission-name">Barnum Park Dirt Loop + Truck Watch</div>
-          </div>
-          <div class="mission-badge">
-            <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="28,2 33,20 51,20 37,31 42,49 28,38 14,49 19,31 5,20 23,20" fill="#2ABFBF"/>
-            </svg>
-            <span class="mission-badge-num">1</span>
+    <!-- ══════════════════════════════════════════════════
+         WEEKEND PLANNER
+    ═══════════════════════════════════════════════════ -->
+    <section id="weekend-planner">
+
+      <div class="section-masthead">
+        <div class="section-icon">🎯</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Auto-generated Wednesday evening</div>
+          <div class="section-title">WEEKEND MISSIONS</div>
+        </div>
+        <div class="section-badge" style="background:var(--coral);color:var(--warm-white);">
+          March 28–29, 2026
+        </div>
+      </div>
+
+      <!-- INTEL ROW -->
+      <div class="intel-row">
+
+        <div class="intel-card sat">
+          <div class="intel-label">Saturday Weather</div>
+          <div class="intel-day">SATURDAY</div>
+          <span class="weather-badge GREAT">
+        GREAT</span>
+          <div class="intel-detail">
+            High 62° / Low 41°<br>
+            5% rain · 8 mph wind
           </div>
         </div>
-        <div class="mission-meta">
-          <div class="meta-tag"><span class="meta-tag-label">When</span> Saturday, 9:15–11:30 AM</div>
-          <div class="meta-tag"><span class="meta-tag-label">Where</span> Barnum Park — Barnum neighborhood, West Denver</div>
-          <div class="meta-tag"><span class="meta-tag-label">Drive</span> ~12 min from Capitol Hill</div>
-          <div class="meta-tag"><span class="meta-tag-label">Cost</span> $0</div>
+
+        <div class="intel-card sun">
+          <div class="intel-label">Sunday Weather</div>
+          <div class="intel-day">SUNDAY</div>
+          <span class="weather-badge GOOD">
+        GOOD</span>
+          <div class="intel-detail">
+            High 55° / Low 38°<br>
+            20% rain · 12 mph wind
+          </div>
         </div>
-        <div class="mission-body">
-          <div>
-            <div class="section-kicker">The Plan</div>
-            <p class="plan-text">Hit Wash Park by 9:30 before the crowds arrive. Odie leads the duck trail loop at full sprint — let him set the pace. Mazzy rides in the carrier, gets the fresh air and motion she loves. After the loop, grab coffees from Wash Perk and let Odie hit the playground for 20 minutes before heading home ahead of Mazzy's first nap.</p>
+
+        <div class="intel-card windows">
+          <div class="intel-label">Open Windows</div>
+          <div class="window-entry">
+            <div class="window-day-label">Saturday</div>
+            <div class="window-time">9:30–11:30 AM<br>
+          3:30–5:30 PM</div>
           </div>
-          <div>
-            <div class="section-kicker">Why This Weekend</div>
-            <p class="why-text">Saturday is the weather gem of the two days — 62°F and barely any wind. This is the window before spring weekend crowds fully arrive. The duck trail gives Odie a mission with no setup required and Mazzy a smooth ride in the carrier.</p>
+          <div class="window-entry">
+            <div class="window-day-label">Sunday</div>
+            <div class="window-time">9:00–11:00 AM<br>Open afternoon</div>
           </div>
-          <div class="logistics-block">
+          <div class="cal-note">No conflicts · Mazzy nap windows accounted for</div>
+        </div>
+
+      </div>
+
+      <!-- MISSIONS -->
+      <div class="missions">
+
+        <!-- MISSION 1 -->
+        <div class="mission-panel outdoor">
+          <div class="mission-header outdoor">
             <div>
-              <div class="section-kicker">Logistics</div>
-              <ul class="logistics-list">
-                <li>Carrier for Mazzy — trail isn't stroller-friendly</li>
-                <li>Snacks for Odie in the car (he'll ask the second you leave)</li>
-                <li>Layer up — 41°F at 9:30, warms fast by 10:30</li>
-                <li>Leave by 11:15 to beat Mazzy's nap window</li>
-              </ul>
+              <div class="mission-type-label">Mission 1 — Outdoor Strike</div>
+              <div class="mission-name">Morning at Wash Park + Duck Trail</div>
             </div>
-            <div class="weather-gate-block">
-              <div class="weather-gate-label">☁ Weather Gate</div>
-              <p class="weather-gate-text">If Saturday drops below 45°F or rain hits — swap to Denver Museum of Nature &amp; Science. Same morning window, Odie loves the dinosaurs, everyone stays warm.</p>
+            <div class="mission-badge">
+              <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="28,2 33,20 51,20 37,31 42,49 28,38 14,49 19,31 5,20 23,20" fill="#2ABFBF"/>
+              </svg>
+              <span class="mission-badge-num">1</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- MISSION 2 -->
-      <div class="mission-panel intown">
-        <div class="mission-header intown">
-          <div>
-            <div class="mission-type-label">Mission 2 — In-Town Op</div>
-            <div class="mission-name">Denver Botanic Gardens — Conservatory + Outdoor Paths</div>
+          <div class="mission-meta">
+            <div class="meta-tag"><span class="meta-tag-label">When</span> Sat 9:30–11:30 AM</div>
+            <div class="meta-tag"><span class="meta-tag-label">Where</span> Washington Park</div>
+            <div class="meta-tag"><span class="meta-tag-label">Drive</span> 8 min</div>
+            <div class="meta-tag"><span class="meta-tag-label">Cost</span> $0–12</div>
           </div>
-          <div class="mission-badge">
-            <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="28,2 33,20 51,20 37,31 42,49 28,38 14,49 19,31 5,20 23,20" fill="#7A8C3F"/>
-            </svg>
-            <span class="mission-badge-num">2</span>
-          </div>
-        </div>
-        <div class="mission-meta">
-          <div class="meta-tag"><span class="meta-tag-label">When</span> Sat 3:30–5:30 PM</div>
-          <div class="meta-tag"><span class="meta-tag-label">Where</span> Santa Fe Arts District</div>
-          <div class="meta-tag"><span class="meta-tag-label">Drive</span> 12 min</div>
-          <div class="meta-tag"><span class="meta-tag-label">Cost</span> ~$45 ★ splurge</div>
-        </div>
-        <div class="mission-body">
-          <div>
-            <div class="section-kicker">The Plan</div>
-            <p class="plan-text">Afternoon window after Mazzy's second nap. Grab an early dinner at Punch Bowl Social (loud, kid-tolerant, Odie can handle it), then walk through Mission 1 Denver. Odie is exactly the right age for the sensory overload — he'll lose his mind in the best way. Mazzy in the carrier, you both get to actually experience something weird and memorable.</p>
-          </div>
-          <div>
-            <div class="section-kicker">Why This Weekend</div>
-            <p class="why-text">The 3:30 PM Saturday slot is a sweet spot — Odie past post-nap grogginess, Mazzy freshly fed, and Mission 1's afternoon crowd is lighter than evenings. With Sunday looking windier, Saturday afternoon is the move for something bigger.</p>
-          </div>
-          <div class="logistics-block">
+          <div class="mission-body">
             <div>
-              <div class="section-kicker">Logistics</div>
-              <ul class="logistics-list">
-                <li>Buy Mission 1 tickets online in advance — they sell out weekends</li>
-                <li>Carrier for Mazzy — stroller is cumbersome inside</li>
-                <li>Tell Odie 45 minutes before you walk in, or he'll never leave</li>
-                <li>Parking: street on Kalamath usually open Saturday afternoon</li>
-              </ul>
+              <div class="section-kicker">The Plan</div>
+              <p class="plan-text">Hit Wash Park by 9:30 before the crowds arrive. Odie leads the duck trail loop at full sprint — let him set the pace. Mazzy rides in the carrier, gets the fresh air and motion she loves. After the loop, grab coffees from Wash Perk and let Odie hit the playground for 20 minutes before heading home ahead of Mazzy's first nap.</p>
             </div>
-            <div class="weather-gate-block">
-              <div class="weather-gate-label">☁ Weather Gate</div>
-              <p class="weather-gate-text">Fully indoors — weather-proof. If Sunday looks worse than forecast, you can flip Missions 1 and 2 across the days without losing anything.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MISSION 3 -->
-      <div class="mission-panel basecamp">
-        <div class="mission-header basecamp">
-          <div>
-            <div class="mission-type-label">Mission 3 — Base Camp Mode</div>
-            <div class="mission-name">Saturday Afternoon Reset + Backyard Truck Wash</div>
-          </div>
-          <div class="mission-badge">
-            <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="28,2 33,20 51,20 37,31 42,49 28,38 14,49 19,31 5,20 23,20" fill="#4A2C4E"/>
-            </svg>
-            <span class="mission-badge-num">3</span>
-          </div>
-        </div>
-        <div class="mission-meta">
-          <div class="meta-tag"><span class="meta-tag-label">When</span> Sunday, no agenda</div>
-          <div class="meta-tag"><span class="meta-tag-label">Where</span> Home + block radius</div>
-          <div class="meta-tag"><span class="meta-tag-label">Drive</span> None</div>
-          <div class="meta-tag"><span class="meta-tag-label">Cost</span> $0–20</div>
-        </div>
-        <div class="mission-body">
-          <div>
-            <div class="section-kicker">The Plan</div>
-            <p class="plan-text">Slow Sunday. Make a proper brunch — pancakes, Odie pours the batter. After Mazzy's morning nap, a long neighborhood stroll with the stroller to a coffee shop with outdoor seating. Let Odie run a loop. Home by noon. Afternoon is Odie's pick: backyard water table if it warms up, movie on the couch if it doesn't. No agenda, no car, no logistics to manage.</p>
-          </div>
-          <div>
-            <div class="section-kicker">Why This Weekend</div>
-            <p class="why-text">Sunday's wind picks up in the afternoon and the forecast softens. If Saturday delivers, Sunday as a genuine reset is intelligent planning — not a fallback. Base Camp done intentionally is some of the best family time there is.</p>
-          </div>
-          <div class="logistics-block">
             <div>
-              <div class="section-kicker">Logistics</div>
-              <ul class="logistics-list">
-                <li>Pancake supplies — one grocery run Saturday evening if needed</li>
-                <li>Stroller charged and ready the night before</li>
-                <li>Coffee shop pick: wherever has outdoor seating and is walkable</li>
-              </ul>
+              <div class="section-kicker">Why This Weekend</div>
+              <p class="why-text">Saturday is the weather gem of the two days — 62°F and barely any wind. This is the window before spring weekend crowds fully arrive. The duck trail gives Odie a mission with no setup required and Mazzy a smooth ride in the carrier.</p>
             </div>
-            <div class="weather-gate-block">
-              <div class="weather-gate-label">☁ Weather Gate</div>
-              <p class="weather-gate-text">This IS the weather gate. If everything else looks rough, Mission 3 is the call and it's a good one.</p>
+            <div class="logistics-block">
+              <div>
+                <div class="section-kicker">Logistics</div>
+                <ul class="logistics-list">
+                  <li>Carrier for Mazzy — trail isn't stroller-friendly</li>
+                  <li>Snacks for Odie in the car (he'll ask the second you leave)</li>
+                  <li>Layer up — 41°F at 9:30, warms fast by 10:30</li>
+                  <li>Leave by 11:15 to beat Mazzy's nap window</li>
+                </ul>
+              </div>
+              <div class="weather-gate-block">
+                <div class="weather-gate-label">☁ Weather Gate</div>
+                <p class="weather-gate-text">If Saturday drops below 45°F or rain hits — swap to Denver Museum of Nature &amp; Science. Same morning window, Odie loves the dinosaurs, everyone stays warm.</p>
+              </div>
             </div>
+          </div>
+        </div>
+
+        <!-- MISSION 2 -->
+        <div class="mission-panel intown">
+          <div class="mission-header intown">
+            <div>
+              <div class="mission-type-label">Mission 2 — In-Town Op</div>
+              <div class="mission-name">Meow Wolf + Early Dinner on Santa Fe</div>
+            </div>
+            <div class="mission-badge">
+              <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="28,2 33,20 51,20 37,31 42,49 28,38 14,49 19,31 5,20 23,20" fill="#7A8C3F"/>
+              </svg>
+              <span class="mission-badge-num">2</span>
+            </div>
+          </div>
+          <div class="mission-meta">
+            <div class="meta-tag"><span class="meta-tag-label">When</span> Sat 3:30–5:30 PM</div>
+            <div class="meta-tag"><span class="meta-tag-label">Where</span> Santa Fe Arts District</div>
+            <div class="meta-tag"><span class="meta-tag-label">Drive</span> 12 min</div>
+            <div class="meta-tag"><span class="meta-tag-label">Cost</span> ~$45 ★ splurge</div>
+          </div>
+          <div class="mission-body">
+            <div>
+              <div class="section-kicker">The Plan</div>
+              <p class="plan-text">Afternoon window after Mazzy's second nap. Grab an early dinner at Punch Bowl Social (loud, kid-tolerant, Odie can handle it), then walk through Meow Wolf Denver. Odie is exactly the right age for the sensory overload — he'll lose his mind in the best way. Mazzy in the carrier, you both get to actually experience something weird and memorable.</p>
+            </div>
+            <div>
+              <div class="section-kicker">Why This Weekend</div>
+              <p class="why-text">The 3:30 PM Saturday slot is a sweet spot — Odie past post-nap grogginess, Mazzy freshly fed, and Meow Wolf's afternoon crowd is lighter than evenings. With Sunday looking windier, Saturday afternoon is the move for something bigger.</p>
+            </div>
+            <div class="logistics-block">
+              <div>
+                <div class="section-kicker">Logistics</div>
+                <ul class="logistics-list">
+                  <li>Buy Meow Wolf tickets online in advance — they sell out weekends</li>
+                  <li>Carrier for Mazzy — stroller is cumbersome inside</li>
+                  <li>Tell Odie 45 minutes before you walk in, or he'll never leave</li>
+                  <li>Parking: street on Kalamath usually open Saturday afternoon</li>
+                </ul>
+              </div>
+              <div class="weather-gate-block">
+                <div class="weather-gate-label">☁ Weather Gate</div>
+                <p class="weather-gate-text">Fully indoors — weather-proof. If Sunday looks worse than forecast, you can flip Missions 1 and 2 across the days without losing anything.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MISSION 3 -->
+        <div class="mission-panel basecamp">
+          <div class="mission-header basecamp">
+            <div>
+              <div class="mission-type-label">Mission 3 — Base Camp Mode</div>
+              <div class="mission-name">Backyard Brunch + Neighborhood Drift</div>
+            </div>
+            <div class="mission-badge">
+              <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="28,2 33,20 51,20 37,31 42,49 28,38 14,49 19,31 5,20 23,20" fill="#4A2C4E"/>
+              </svg>
+              <span class="mission-badge-num">3</span>
+            </div>
+          </div>
+          <div class="mission-meta">
+            <div class="meta-tag"><span class="meta-tag-label">When</span> Sunday, no agenda</div>
+            <div class="meta-tag"><span class="meta-tag-label">Where</span> Home + block radius</div>
+            <div class="meta-tag"><span class="meta-tag-label">Drive</span> None</div>
+            <div class="meta-tag"><span class="meta-tag-label">Cost</span> $0–20</div>
+          </div>
+          <div class="mission-body">
+            <div>
+              <div class="section-kicker">The Plan</div>
+              <p class="plan-text">Slow Sunday. Make a proper brunch — pancakes, Odie pours the batter. After Mazzy's morning nap, a long neighborhood stroll with the stroller to a coffee shop with outdoor seating. Let Odie run a loop. Home by noon. Afternoon is Odie's pick: backyard water table if it warms up, movie on the couch if it doesn't. No agenda, no car, no logistics to manage.</p>
+            </div>
+            <div>
+              <div class="section-kicker">Why This Weekend</div>
+              <p class="why-text">Sunday's wind picks up in the afternoon and the forecast softens. If Saturday delivers, Sunday as a genuine reset is intelligent planning — not a fallback. Base Camp done intentionally is some of the best family time there is.</p>
+            </div>
+            <div class="logistics-block">
+              <div>
+                <div class="section-kicker">Logistics</div>
+                <ul class="logistics-list">
+                  <li>Pancake supplies — one grocery run Saturday evening if needed</li>
+                  <li>Stroller charged and ready the night before</li>
+                  <li>Coffee shop pick: wherever has outdoor seating and is walkable</li>
+                </ul>
+              </div>
+              <div class="weather-gate-block">
+                <div class="weather-gate-label">☁ Weather Gate</div>
+                <p class="weather-gate-text">This IS the weather gate. If everything else looks rough, Base Camp Sunday is the call and it's a good one.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /missions -->
+
+      <!-- COMMAND PANEL -->
+      <div class="command-panel">
+        <div class="command-eyebrow">Mission Command</div>
+        <div class="command-title">This Weekend's Call</div>
+        <div class="command-grid">
+          <div class="command-card">
+            <div class="command-card-accent"></div>
+            <div class="command-card-label">Best Overall</div>
+            <div class="command-card-pick">Wash Park Morning</div>
+            <div class="command-card-why">Perfect weather, zero cost, Odie burns energy, Mazzy gets fresh air. Hardest plan in the world to argue with.</div>
+          </div>
+          <div class="command-card">
+            <div class="command-card-accent"></div>
+            <div class="command-card-label">Lowest Lift</div>
+            <div class="command-card-pick">Base Camp Sunday</div>
+            <div class="command-card-why">No car, no decisions, no logistics. Odie still gets pancakes and a walk. Honest and genuinely good.</div>
+          </div>
+          <div class="command-card">
+            <div class="command-card-accent"></div>
+            <div class="command-card-label">Best for Odie</div>
+            <div class="command-card-pick">Meow Wolf</div>
+            <div class="command-card-why">He will talk about this for two solid weeks. Worth the splurge — file it under memory-making.</div>
           </div>
         </div>
       </div>
 
-    </div><!-- /missions -->
+    </section>
 
-    <!-- COMMAND PANEL -->
-    <div class="command-panel">
-      <div class="command-eyebrow">Mission Command</div>
-      <div class="command-title">This Weekend's Call</div>
-      <div class="command-grid">
-        <div class="command-card">
-          <div class="command-card-accent"></div>
-          <div class="command-card-label">Best Overall</div>
-          <div class="command-card-pick">Mission 2</div>
-          <div class="command-card-why">Sunday afternoon at the Botanic Gardens lands in the best weather window of the weekend, has zero calendar conflict, and gives the whole family a real moment after what will be a busy Saturday.</div>
-        </div>
-        <div class="command-card">
-          <div class="command-card-accent"></div>
-          <div class="command-card-label">Lowest Lift</div>
-          <div class="command-card-pick">Mission 3</div>
-          <div class="command-card-why">The backyard truck wash is genuinely restorative and requires nothing. Save your legs for Saturday night.</div>
-        </div>
-        <div class="command-card">
-          <div class="command-card-accent"></div>
-          <div class="command-card-label">Best for Odie</div>
-          <div class="command-card-pick">Mission 1</div>
-          <div class="command-card-why">Trucks on Federal Boulevard viewed from a running trail is basically Odie's personal paradise. Give that kid a red truck tally sheet and he'll be occupied for two hours.</div>
-        </div>
-      </div>
-    </div>
-
+    <!-- FOOTER -->
     <div class="footer">
       <div class="footer-logo">SKAALY FAM</div>
-      <div class="footer-sub">Auto-generated Thursday evening · skaalyfam.com</div>
+      <div class="footer-sub">Week Ahead · Sun evening &nbsp;|&nbsp; Weekend Missions · Wed evening &nbsp;|&nbsp; skaalyfam.com</div>
     </div>
 
   </div><!-- /page -->
