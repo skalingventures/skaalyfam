@@ -86,6 +86,7 @@
   </style>
 </head>
 <body>
+<script>if(sessionStorage.getItem('sf_auth')!=='1'){location.href='/login?r='+encodeURIComponent(location.pathname);}</script>
 
   <div class="topbar">
     <a href="/" class="topbar-back">&#8592; HQ</a>

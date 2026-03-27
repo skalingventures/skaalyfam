@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>SKAALY FAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#F5EDD6;--ink:#1C1410;--coral:#E8553E;--turq:#2ABFBF;
+      --muted:#8C8478;--warm-white:#FDFAF4;--motif:232,85,62;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);min-height:100vh;display:flex;align-items:center;justify-content:center;
+      font-family:'DM Sans',sans-serif;color:var(--ink);
+      background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b99a' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+
+    .gate{text-align:center;max-width:360px;width:100%;padding:0 20px}
+
+    .gate-brand{font-family:'Bangers',cursive;font-size:clamp(64px,18vw,96px);letter-spacing:6px;color:var(--coral);
+      text-shadow:3px 3px 0 var(--ink),-1px -1px 0 var(--ink),1px -1px 0 var(--ink),-1px 1px 0 var(--ink);
+      line-height:.88;margin-bottom:6px}
+    .gate-sub{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:6px;
+      text-transform:uppercase;color:var(--muted);margin-bottom:36px}
+    .gate-accent{display:block;width:48px;height:3px;background:var(--turq);margin:0 auto 32px;border-radius:2px}
+
+    .gate-form{display:flex;flex-direction:column;gap:12px;align-items:center}
+    .gate-input{width:100%;max-width:280px;padding:14px 18px;border:3px solid var(--ink);background:var(--warm-white);
+      font:500 15px 'DM Sans',sans-serif;color:var(--ink);letter-spacing:1px;text-align:center;outline:none;
+      transition:border-color .15s}
+    .gate-input::placeholder{color:var(--muted);font-weight:400;letter-spacing:2px;font-size:12px}
+    .gate-input:focus{border-color:var(--coral)}
+    .gate-btn{padding:12px 40px;border:3px solid var(--ink);background:var(--coral);color:var(--warm-white);
+      font-family:'Bangers',cursive;font-size:20px;letter-spacing:3px;cursor:pointer;
+      transition:all .15s;position:relative}
+    .gate-btn:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--ink)}
+    .gate-btn:active{transform:translateY(0);box-shadow:none}
+
+    .gate-error{font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:3px;
+      text-transform:uppercase;color:var(--coral);height:18px;margin-top:4px;
+      opacity:0;transition:opacity .2s}
+    .gate-error.visible{opacity:1}
+
+    .gate-footer{margin-top:48px;font-family:'Oswald',sans-serif;font-weight:500;font-size:9px;
+      letter-spacing:3px;text-transform:uppercase;color:var(--muted);opacity:.35}
+  </style>
+</head>
+<body>
+
+<div class="gate">
+  <div class="gate-brand">SKAALY FAM</div>
+  <div class="gate-sub">Family Intelligence HQ</div>
+  <div class="gate-accent"></div>
+
+  <form class="gate-form" onsubmit="return handleLogin(event)">
+    <input class="gate-input" type="password" id="pw" placeholder="ENTER PASSWORD" autocomplete="off" autofocus>
+    <button class="gate-btn" type="submit">ENTER HQ</button>
+    <div class="gate-error" id="err">WRONG PASSWORD</div>
+  </form>
+
+  <div class="gate-footer">skaalyfam.com</div>
+</div>
+
+<script>
+const HASH='dbdc7b7b0660c48e00a0240761bff76dc01ef83edd159741a7f4808c69d6065c';
+async function sha256(s){const d=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',d);return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('')}
+async function handleLogin(e){
+  e.preventDefault();
+  const pw=document.getElementById('pw').value;
+  const h=await sha256(pw);
+  if(h===HASH){
+    sessionStorage.setItem('sf_auth','1');
+    const dest=new URLSearchParams(location.search).get('r')||'/';
+    location.href=dest;
+  }else{
+    document.getElementById('err').classList.add('visible');
+    document.getElementById('pw').value='';
+    setTimeout(()=>document.getElementById('err').classList.remove('visible'),2000);
+  }
+  return false;
+}
+if(sessionStorage.getItem('sf_auth')==='1'){location.href='/';}
+</script>
+
+</body>
+</html>
