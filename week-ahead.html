@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Week Ahead — SKAALY FAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --coral:#E8553E;--turq:#2ABFBF;--sand:#F5EDD6;--avocado:#7A8C3F;--plum:#4A2C4E;
+      --ink:#1C1410;--warm-white:#FDFAF4;--border:3px solid var(--ink);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--sand);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;
+      background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b99a' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    a{color:inherit}
+
+    .topbar{background:var(--turq);padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .topbar-back{color:var(--ink);text-decoration:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:6px;opacity:.7;transition:opacity .15s}
+    .topbar-back:hover{opacity:1}
+    .topbar-brand{font-family:'Bangers',cursive;font-size:20px;letter-spacing:3px;color:var(--ink);text-shadow:1px 1px 0 rgba(255,255,255,.3)}
+    .topbar-date{font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--warm-white);background:var(--ink);padding:4px 14px;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+
+    .page{max-width:900px;margin:0 auto;padding:24px 16px 64px}
+    .page-header{text-align:center;margin-bottom:28px}
+    .page-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(28,20,16,.4);margin-bottom:4px}
+    .page-title{font-family:'Bangers',cursive;font-size:clamp(36px,8vw,56px);letter-spacing:3px;color:var(--ink);line-height:1}
+
+    /* coverage strip */
+    .coverage-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:24px}
+    @media(max-width:580px){.coverage-strip{gap:4px}}
+    .coverage-cell{text-align:center;padding:10px 6px;border:var(--border);background:var(--warm-white)}
+    .coverage-cell-day{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(28,20,16,.4);margin-bottom:5px}
+    .coverage-cell-status{font-family:'Bangers',cursive;font-size:14px;letter-spacing:1px}
+    .coverage-cell.covered{border-top:4px solid var(--avocado)}
+    .coverage-cell.uncovered{border-top:4px solid var(--coral)}
+    .coverage-cell.partial{border-top:4px solid #E8A23E}
+    .coverage-cell.clear{border-top:4px solid var(--turq)}
+    .coverage-cell.covered .coverage-cell-status{color:var(--avocado)}
+    .coverage-cell.uncovered .coverage-cell-status{color:var(--coral)}
+    .coverage-cell.partial .coverage-cell-status{color:#C07A10}
+    .coverage-cell.clear .coverage-cell-status{color:var(--turq)}
+
+    /* day cards */
+    .week-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px}
+    @media(max-width:640px){.week-grid{grid-template-columns:1fr}}
+    .day-card{background:var(--warm-white);border:var(--border);overflow:hidden}
+    .day-card.weekend{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0}
+    @media(max-width:640px){.day-card.weekend{grid-template-columns:1fr}}
+    .day-header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px 10px;border-bottom:2px solid rgba(28,20,16,.07)}
+    .day-name{font-family:'Bangers',cursive;font-size:22px;letter-spacing:2px;color:var(--ink);line-height:1}
+    .day-date{font-family:'Oswald',sans-serif;font-weight:500;font-size:10px;letter-spacing:2px;color:rgba(28,20,16,.4);text-transform:uppercase;margin-top:1px}
+    .day-status-badge{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:3px 10px;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%)}
+    .status-CLEAR{background:rgba(42,191,191,.15);color:var(--turq)}
+    .status-FLAG{background:rgba(232,85,62,.15);color:var(--coral)}
+    .status-COVERED{background:rgba(122,140,63,.15);color:var(--avocado)}
+    .status-WATCH{background:rgba(232,162,62,.15);color:#C07A10}
+    .day-body{padding:12px 16px 14px}
+    .day-events{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:8px}
+    .day-event{font-size:13px;line-height:1.45;color:var(--ink);padding-left:14px;position:relative}
+    .day-event::before{content:'▸';position:absolute;left:0;font-size:9px;top:3px;color:var(--coral)}
+    .day-event a{color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px}
+    .day-event-label{font-size:9px;font-family:'Oswald',sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:1px 6px;border-radius:2px;margin-left:4px;vertical-align:middle}
+    .label-Kjael{background:rgba(42,191,191,.15);color:#1A9090}
+    .label-KjaelSV{background:rgba(42,191,191,.1);color:#1A9090}
+    .label-KjaelSC{background:rgba(42,191,191,.1);color:#1A9090}
+    .label-Mardee{background:rgba(232,85,62,.12);color:#C03020}
+    .label-KM{background:rgba(74,44,78,.12);color:var(--plum)}
+    .label-Sitters{background:rgba(122,140,63,.15);color:#5A6B20}
+    .label-School{background:rgba(232,162,62,.15);color:#C07A10}
+    .day-note{font-size:12px;color:rgba(28,20,16,.55);font-style:italic;line-height:1.5;padding-top:7px;border-top:1px dashed rgba(28,20,16,.12)}
+    .day-note a{color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px}
+    .day-clear{font-size:13px;color:rgba(28,20,16,.3);font-style:italic}
+    .weekend-day+.weekend-day{border-left:2px solid rgba(28,20,16,.08)}
+    @media(max-width:640px){.weekend-day+.weekend-day{border-left:none;border-top:2px solid rgba(28,20,16,.08)}}
+
+    /* flags */
+    .flags-panel{background:var(--ink);border:var(--border);padding:20px 24px}
+    .flags-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--coral);margin-bottom:12px}
+    .flags-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .flags-list li{font-size:13px;line-height:1.5;color:rgba(253,250,244,.82);padding-left:20px;position:relative}
+    .flags-list li::before{content:'!';position:absolute;left:0;font-family:'Bangers',cursive;font-size:14px;color:var(--coral);line-height:1.2}
+    .flags-list li a{color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px}
+    .flags-empty{font-size:13px;color:rgba(253,250,244,.35);font-style:italic}
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="/" class="topbar-back">&#8592; HQ</a>
+    <div class="topbar-brand">SKAALY FAM</div>
+    <div class="topbar-date">March 30 – April 5, 2026</div>
+  </div>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-eyebrow">Auto-generated Sunday evening</div>
+      <div class="page-title">WEEK AHEAD</div>
+    </div>
+
+    <div class="coverage-strip">
+      <div class="coverage-cell covered"><div class="coverage-cell-day">Mon</div><div class="coverage-cell-status">COVERED</div></div>
+      <div class="coverage-cell covered"><div class="coverage-cell-day">Tue</div><div class="coverage-cell-status">COVERED</div></div>
+      <div class="coverage-cell partial"><div class="coverage-cell-day">Wed</div><div class="coverage-cell-status">PARTIAL</div></div>
+      <div class="coverage-cell covered"><div class="coverage-cell-day">Thu</div><div class="coverage-cell-status">COVERED</div></div>
+      <div class="coverage-cell covered"><div class="coverage-cell-day">Fri</div><div class="coverage-cell-status">COVERED</div></div>
+    </div>
+
+    <div class="week-grid">
+      <div class="day-card">
+        <div class="day-header">
+          <div>
+            <div class="day-name">Monday</div>
+            <div class="day-date">March 30</div>
+          </div>
+          <span class="day-status-badge status-CLEAR">CLEAR</span>
+        </div>
+        <div class="day-body">
+          <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Newspaper & Market Scan — 10:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Scorecard & Week Ahead — 11:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Team Meeting — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Kylor / KJ: Weekly — 2:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Skaaly Zone 🧘 — 4:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+          <p class="day-note">Kjael's midday meetings run through Mazzy's afternoon nap window (1–3 PM) but he appears WFH — Mardee holds the floor on nap logistics.</p>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <div>
+            <div class="day-name">Tuesday</div>
+            <div class="day-date">March 31</div>
+          </div>
+          <span class="day-status-badge status-CLEAR">CLEAR</span>
+        </div>
+        <div class="day-body">
+          <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Customer Acquisition — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Emery & Kjael (BiWeekly) — 10:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Content Review — 11:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup: Sales — 11:45 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup: Growth — 12:30 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Kev & Kjael (Weekly) — 2:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Short Form — 3:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Skaaly Zone 🧘 — 4:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+          <p class="day-note">Kjael is meeting-heavy 9:30 AM–2:00 PM — Mazzy's morning nap (9–10 AM) and afternoon nap (1–3 PM) both fall inside this block; Mardee is solo on kids all morning and into afternoon.</p>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <div>
+            <div class="day-name">Wednesday</div>
+            <div class="day-date">April 1</div>
+          </div>
+          <span class="day-status-badge status-FLAG">FLAG</span>
+        </div>
+        <div class="day-body">
+          <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Customer Success — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Emma with Odie — 9:00 AM <span class="day-event-label label-Sitters">Sitters</span></li>
+<li class="day-event">Standup — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Stand Up: Support & Onboarding — 12:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Brent & Kjael — 1:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">TRIBE Meet & Greet / Ikigai Book Club Kick Off — 1:30 PM <span class="day-event-label label-Kjael">Kjael</span></li>
+<li class="day-event">Agentic Adventures 🤖 — 2:30 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Spring Break — all day <span class="day-event-label label-School">Odie-School</span></li>
+</ul>
+          <p class="day-note">Spring Break means no preschool — Emma is confirmed with Odie at 9 AM which helps, but the 1:30 PM TRIBE event appears to be an external/in-person commitment for Kjael that conflicts directly with Mazzy's afternoon nap window (1–3 PM) AND overlaps with Brent & Kjael at 1:00 PM; confirm whether TRIBE is remote or out-of-house, and ensure Mardee has coverage or backup for the afternoon stretch.</p>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <div>
+            <div class="day-name">Thursday</div>
+            <div class="day-date">April 2</div>
+          </div>
+          <span class="day-status-badge status-COVERED">COVERED</span>
+        </div>
+        <div class="day-body">
+          <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Product — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Emma with Odie — 9:00 AM <span class="day-event-label label-Sitters">Sitters</span></li>
+<li class="day-event">Virtual Team Lunch — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Steve & Kjael — 11:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">L10 — 12:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Legrand Follow Up — 2:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Skaaly Zone 🧘 — 4:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+          <p class="day-note">Emma confirmed with Odie at 9 AM; Kjael is back-to-back WFH from 9:30 AM through 2:00 PM but appears remote throughout — Mardee manages Mazzy's naps with Odie covered by Emma in the morning.</p>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-header">
+          <div>
+            <div class="day-name">Friday</div>
+            <div class="day-date">April 3</div>
+          </div>
+          <span class="day-status-badge status-COVERED">COVERED</span>
+        </div>
+        <div class="day-body">
+          <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: VoM & Weekly Brief — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Emma with Odie — 9:00 AM <span class="day-event-label label-Sitters">Sitters</span></li>
+<li class="day-event">Tech & Product Roundup — 11:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Onboarding Retro: Coaster + Magic Lite — 11:45 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Skaaly Weekly Wrap & Week Ahead — 1:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Diego / KJ — 2:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Wind Down — 3:00 PM <span class="day-event-label label-Kjael">Kjael</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+          <p class="day-note">Emma confirmed with Odie at 9 AM; Kjael's afternoon clears by 3 PM Wind Down, which lands right at the tail of Mazzy's nap — solid close to the work week.</p>
+        </div>
+      </div>
+
+      <div class="day-card weekend">
+        <div class="weekend-day">
+          <div class="day-header">
+            <div>
+              <div class="day-name">Saturday</div>
+              <div class="day-date">April 4</div>
+            </div>
+            <span class="day-status-badge status-WATCH">WATCH</span>
+          </div>
+          <div class="day-body">
+            <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Dave Cease Memorial — 2:00 PM <span class="day-event-label label-KM">K&M</span></li>
+</ul>
+            <p class="day-note">Dave Cease Memorial at 2:00 PM is a [K&M] event — if both Kjael and Mardee are attending, this lands squarely inside Mazzy's afternoon nap window (1–3 PM) and requires a confirmed sitter for both kids; no sitter is currently showing on the calendar.</p>
+          </div>
+        </div>
+        <div class="weekend-day">
+          <div class="day-header">
+            <div>
+              <div class="day-name">Sunday</div>
+              <div class="day-date">April 5</div>
+            </div>
+            <span class="day-status-badge status-FLAG">FLAG</span>
+          </div>
+          <div class="day-body">
+            <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Easter at Nana's — 1:00 PM <span class="day-event-label label-KM">K&M</span></li>
+<li class="day-event">🏒 St. Louis Blues @ Colorado Avalanche — 7:30 PM <span class="day-event-label label-KM">K&M</span></li>
+</ul>
+            <p class="day-note">Two back-to-back family outings — Easter at Nana's at 1 PM overlaps Mazzy's afternoon nap window entirely; plan car nap or coordinate nap timing before departure. Blues @ Avs at 7:30 PM is a late evening out — confirm childcare for the game or clarify if kids are coming.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flags-panel">
+      <div class="flags-eyebrow">&#9873; This Week's Flags</div>
+      <ul class="flags-list">
+        <li>**Wednesday April 1 — TRIBE event location:** Confirm whether the 1:30 PM TRIBE Meet & Greet is in-person or remote. If Kjael is leaving the house, afternoon coverage for Mazzy + Odie is currently unconfirmed during nap window.</li>
+<li>**Wednesday April 1 — Spring Break:** No preschool all week (Spring Break marked all-day on Odie-School). Emma covers Wednesday and Thursday/Friday mornings, but Monday and Tuesday have no sitter listed — confirm Odie is accounted for or that the Kjael/Mardee split handles it.</li>
+<li>**Saturday April 4 — Dave Cease Memorial:** [K&M] event at 2:00 PM hits Mazzy's nap window. If both adults attending, no sitter is currently booked — action needed now.</li>
+<li>**Sunday April 5 — Easter at Nana's:** 1:00 PM departure will cut into or eliminate Mazzy's afternoon nap. Decide whether to push nap earlier, do a car nap, or accept the disruption and plan accordingly.</li>
+<li>**Sunday April 5 — Blues @ Avs:** 7:30 PM game is a late night. Confirm whether this is adults-only (sitter needed) or a family outing — either way requires a plan for Mazzy's bedtime routine.</li>
+<li>**Spring Break all week:** No school Monday–Friday for Odie. Emma is confirmed Wed/Thu/Fri mornings. Monday and Tuesday have no sitter listed — verify coverage plan for those mornings given Kjael's meeting load.</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

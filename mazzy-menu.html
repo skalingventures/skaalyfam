@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Mazzy's Menu — SKAALY FAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --coral:#E8553E;--turq:#2ABFBF;--sand:#F5EDD6;--avocado:#7A8C3F;--plum:#4A2C4E;
+      --ink:#1C1410;--warm-white:#FDFAF4;--border:3px solid var(--ink);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--sand);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;
+      background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b99a' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    a{color:inherit}
+
+    .topbar{background:var(--plum);padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .topbar-back{color:var(--warm-white);text-decoration:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:6px;opacity:.8;transition:opacity .15s}
+    .topbar-back:hover{opacity:1}
+    .topbar-brand{font-family:'Bangers',cursive;font-size:20px;letter-spacing:3px;color:var(--warm-white);text-shadow:2px 2px 0 var(--ink)}
+    .topbar-date{font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--plum);background:var(--warm-white);padding:4px 14px;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+
+    .page{max-width:900px;margin:0 auto;padding:24px 16px 64px}
+    .page-header{text-align:center;margin-bottom:8px}
+    .page-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(28,20,16,.4);margin-bottom:4px}
+    .page-title{font-family:'Bangers',cursive;font-size:clamp(36px,8vw,56px);letter-spacing:3px;color:var(--ink);line-height:1}
+    .menu-theme{font-family:'DM Sans',sans-serif;font-size:15px;font-style:italic;color:rgba(28,20,16,.55);margin-bottom:24px;text-align:center}
+
+    /* activity cards */
+    .activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:640px){.activity-grid{grid-template-columns:1fr}}
+    .activity-card{background:var(--warm-white);border:var(--border);overflow:hidden;display:flex;flex-direction:column;border-left:6px solid var(--coral)}
+    .activity-card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;border-bottom:2px solid rgba(28,20,16,.06)}
+    .activity-num{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Bangers',cursive;font-size:16px;color:var(--warm-white);flex-shrink:0;margin-right:10px;background:var(--coral);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+    .activity-title{font-family:'Bangers',cursive;font-size:20px;letter-spacing:1px;line-height:1.1;color:var(--ink);flex:1}
+    .activity-category{font-family:'Oswald',sans-serif;font-weight:700;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);white-space:nowrap;flex-shrink:0;margin-left:8px}
+    .cat-motor{background:rgba(232,85,62,.12);color:var(--coral)}
+    .cat-sensory{background:rgba(42,191,191,.12);color:#1A9090}
+    .cat-cognitive{background:rgba(74,44,78,.12);color:var(--plum)}
+    .cat-social{background:rgba(232,162,62,.15);color:#C07A10}
+    .cat-language{background:rgba(122,140,63,.12);color:var(--avocado)}
+    .activity-body{padding:12px 16px 14px;flex:1;display:flex;flex-direction:column}
+    .activity-desc{font-size:13px;line-height:1.6;color:var(--ink);margin-bottom:10px;flex:1}
+    .activity-desc a{color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px}
+    .milestone-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--coral);font-weight:500;margin-top:6px}
+    .milestone-badge a{color:var(--coral);text-decoration:underline;text-underline-offset:2px}
+    .activity-tags{display:flex;gap:6px;padding:8px 16px 12px;flex-wrap:wrap}
+    .activity-tag{font-family:'Oswald',sans-serif;font-weight:500;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;background:rgba(28,20,16,.04);border:1px solid rgba(28,20,16,.08)}
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="/" class="topbar-back">&#8592; HQ</a>
+    <div class="topbar-brand">SKAALY FAM</div>
+    <div class="topbar-date">March 30–April 5, 2026</div>
+  </div>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-eyebrow">Auto-generated Sunday evening</div>
+      <div class="page-title">MAZZY'S MENU</div>
+    </div>
+    <div class="menu-theme">Sitting tall and reaching far — hands that grab on purpose and a voice that's starting to talk back</div>
+
+    <div class="activity-grid">
+      
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">1</div>
+            <div class="activity-title">Supported Sit with Treasure Basket</div>
+          </div>
+          <span class="activity-category cat-motor">MOTOR</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Prop Mazzy in a supported sitting position — Boppy pillow behind her, rolled blanket in front if needed — and place a low, flat basket within reach containing 4–5 objects with different textures: a wooden ring, a silicone spoon, a small cloth square, a smooth river rock (too large to mouth), a crinkle fabric toy. Let her reach, grab, mouth, and examine without interference. Watch which she returns to. Don't rotate objects out mid-session — repetition is how she builds category knowledge.</div>
+          
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">2</div>
+            <div class="activity-title">Peek-a-Boo with a Cloth — Object Permanence Primer</div>
+          </div>
+          <span class="activity-category cat-cognitive">COGNITIVE</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Sit face-to-face with Mazzy and place one of her favorite small toys on the floor between you. Let her see it clearly, then slowly drape a small cloth over it while she watches. Pause and watch her face — does she look toward it? Reach for the cloth? Then lift the cloth: "There it is!" Repeat five or six times, then switch: hide your own face with the cloth instead and reveal with a big smile. Follow her lead on pacing — if she looks away, she's done.</div>
+          
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">3</div>
+            <div class="activity-title">Outdoor Blanket Time in the Backyard — Spring Air and Texture</div>
+          </div>
+          <span class="activity-category cat-sensory">SENSORY</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">On Saturday or Sunday (both days forecast above 75°F by midday), take Mazzy outside on a blanket in direct but not harsh sunlight. Let her feel the texture of the blanket edge, a patch of grass if she reaches for it, and the air on her bare feet. No toys required. Narrate in a calm, quiet voice: "You can hear the wind. There's a bird. That's grass — it tickles." Let her track moving leaves overhead. 15–20 minutes is plenty.</div>
+          
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">LOW</span> <span class="activity-tag">OUTDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">4</div>
+            <div class="activity-title">Consonant Call-and-Response</div>
+          </div>
+          <span class="activity-category cat-language">LANGUAGE</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">During a calm, alert wake window (typically post-nap, well-fed), sit close to Mazzy face-to-face and let her babble first. When she produces a consonant sound — ba, da, ma, ga — mirror it back to her exactly, then pause and wait. See if she responds. Don't flood her with new sounds — stay in her register. If she gives you "babababa," give it back, pause, and see what she does. This is a conversation, not a lesson.</div>
+          
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">5</div>
+            <div class="activity-title">Tummy Time on a Rolled Towel — Extended Arm Press</div>
+          </div>
+          <span class="activity-category cat-motor">MOTOR</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Place a firmly rolled bath towel under Mazzy's chest so her arms hang forward past the roll. This elevation changes the challenge: instead of lifting her head from flat, she's working on weight-bearing through straight arms — a progression beyond basic tummy time. Place a small mirror or your face at her eye level on the floor. Target 3–5 minutes, 2–3 times across the day. If she fusses at minute two, narrate what you see before rescuing: "You're working so hard. Your arms are pushing."</div>
+          
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">MEDIUM</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

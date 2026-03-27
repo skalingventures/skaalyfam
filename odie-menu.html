@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Odie's Menu — SKAALY FAM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --coral:#E8553E;--turq:#2ABFBF;--sand:#F5EDD6;--avocado:#7A8C3F;--plum:#4A2C4E;
+      --ink:#1C1410;--warm-white:#FDFAF4;--border:3px solid var(--ink);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--sand);font-family:'DM Sans',sans-serif;color:var(--ink);min-height:100vh;
+      background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4b99a' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+    a{color:inherit}
+
+    .topbar{background:var(--avocado);padding:10px 20px;display:flex;align-items:center;justify-content:space-between}
+    .topbar-back{color:var(--warm-white);text-decoration:none;font-family:'Oswald',sans-serif;font-weight:700;font-size:11px;letter-spacing:3px;text-transform:uppercase;display:flex;align-items:center;gap:6px;opacity:.8;transition:opacity .15s}
+    .topbar-back:hover{opacity:1}
+    .topbar-brand{font-family:'Bangers',cursive;font-size:20px;letter-spacing:3px;color:var(--warm-white);text-shadow:2px 2px 0 var(--ink)}
+    .topbar-date{font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink);background:var(--warm-white);padding:4px 14px;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%)}
+
+    .page{max-width:900px;margin:0 auto;padding:24px 16px 64px}
+    .page-header{text-align:center;margin-bottom:8px}
+    .page-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(28,20,16,.4);margin-bottom:4px}
+    .page-title{font-family:'Bangers',cursive;font-size:clamp(36px,8vw,56px);letter-spacing:3px;color:var(--ink);line-height:1}
+    .menu-theme{font-family:'DM Sans',sans-serif;font-size:15px;font-style:italic;color:rgba(28,20,16,.55);margin-bottom:24px;text-align:center}
+
+    /* activity cards */
+    .activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:640px){.activity-grid{grid-template-columns:1fr}}
+    .activity-card{background:var(--warm-white);border:var(--border);overflow:hidden;display:flex;flex-direction:column;border-left:6px solid var(--turq)}
+    .activity-card-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px 10px;border-bottom:2px solid rgba(28,20,16,.06)}
+    .activity-num{width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-family:'Bangers',cursive;font-size:16px;color:var(--warm-white);flex-shrink:0;margin-right:10px;background:var(--turq);clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%)}
+    .activity-title{font-family:'Bangers',cursive;font-size:20px;letter-spacing:1px;line-height:1.1;color:var(--ink);flex:1}
+    .activity-category{font-family:'Oswald',sans-serif;font-weight:700;font-size:8px;letter-spacing:2px;text-transform:uppercase;padding:3px 8px;clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%);white-space:nowrap;flex-shrink:0;margin-left:8px}
+    .cat-practical{background:rgba(122,140,63,.2);color:var(--avocado)}
+    .cat-gross{background:rgba(232,85,62,.15);color:var(--coral)}
+    .cat-fine{background:rgba(42,191,191,.15);color:#1A9090}
+    .cat-creative{background:rgba(74,44,78,.15);color:var(--plum)}
+    .cat-nature{background:rgba(122,140,63,.15);color:#5A6B20}
+    .cat-social{background:rgba(232,162,62,.15);color:#C07A10}
+    .cat-imaginative{background:rgba(42,191,191,.12);color:var(--turq)}
+    .activity-body{padding:12px 16px 14px;flex:1;display:flex;flex-direction:column}
+    .activity-desc{font-size:13px;line-height:1.6;color:var(--ink);margin-bottom:10px;flex:1}
+    .activity-desc a{color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px}
+    .activity-why{font-size:12px;line-height:1.5;color:rgba(28,20,16,.5);font-style:italic;padding-top:8px;border-top:1px dashed rgba(28,20,16,.1)}
+    .activity-why a{color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px}
+    .activity-tags{display:flex;gap:6px;padding:8px 16px 12px;flex-wrap:wrap}
+    .activity-tag{font-family:'Oswald',sans-serif;font-weight:500;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;background:rgba(28,20,16,.04);border:1px solid rgba(28,20,16,.08)}
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <a href="/" class="topbar-back">&#8592; HQ</a>
+    <div class="topbar-brand">SKAALY FAM</div>
+    <div class="topbar-date">March 30–April 5, 2026</div>
+  </div>
+
+  <div class="page">
+    <div class="page-header">
+      <div class="page-eyebrow">Auto-generated Sunday evening</div>
+      <div class="page-title">ODIE'S MENU</div>
+    </div>
+    <div class="menu-theme">Dirt under fingernails and jobs that matter — spring is here and there's real work to do</div>
+
+    <div class="activity-grid">
+      
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">1</div>
+            <div class="activity-title">Puddle Science Walk at Westerly Creek Greenway</div>
+          </div>
+          <span class="activity-category cat-nature">NATURE</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Head out Monday morning while the weekend's temperature swing has left interesting conditions — look for frost on shadowed patches, soft mud along the creek edge, and early spring insects. Give Odie a small jar and let him collect one "specimen" (a pebble, a seed pod, a twig with a bud). When you get home, draw it together on paper and label it whatever he decides to call it. Keep it on the windowsill as an ongoing observation.</div>
+          <div class="activity-why">Unstructured nature investigation builds scientific thinking through direct sensory engagement — Odie is in what forest school practitioners call the "tool use and collection" phase, where objects from nature anchor executive function and language simultaneously. <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Westerly-Creek-Greenway" target="_blank" rel="noopener">Westerly Creek Greenway Trail Info</a></div>
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">MEDIUM</span> <span class="activity-tag">OUTDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">2</div>
+            <div class="activity-title">Seed Starting Station</div>
+          </div>
+          <span class="activity-category cat-practical">PRACTICAL LIFE</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Set up a small tray with four or five small cups, a bag of potting mix, and a packet of fast-germinating seeds — radishes or sunflowers work best. Show Odie how to spoon soil into each cup, poke a hole with his finger to the second knuckle, drop in one seed, and cover gently. He waters with a spray bottle. Label cups with his drawings instead of words. Put in a sunny window; check daily. This is his job for the next two weeks.</div>
+          <div class="activity-why">Montessori practical life activities that produce a real, visible result over time build delayed gratification and a sense of genuine household contribution — the child is not pretending to garden, he is gardening. <a href="https://www.themontessorinotebook.com/practical-life-plant-care/" target="_blank" rel="noopener">Montessori Practical Life: Plant Care</a></div>
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">3</div>
+            <div class="activity-title">Obstacle Course at Globeville Landing Park</div>
+          </div>
+          <span class="activity-category cat-gross">GROSS MOTOR</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Sunday's 77°F forecast is the best weather day of the week — use it. Globeville Landing is underused and has open grass, a paved path along the Platte, and natural terrain features. Bring chalk and draw a start/finish line. Time him running to a tree and back. Build a simple course: run to the fence, hop on one foot three times, spin, crawl under the picnic table, sprint home. Let him redesign the course on lap two.</div>
+          <div class="activity-why">Gross motor challenges with a self-imposed rule structure (hopping, spinning, crawling) are early executive function training — the child must hold the sequence in working memory while also controlling his body, which is precisely Vygotsky's ZPD for this age. <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Globeville-Landing-Park" target="_blank" rel="noopener">Globeville Landing Confluence Park</a></div>
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">HIGH</span> <span class="activity-tag">OUTDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">4</div>
+            <div class="activity-title">Tape Resist Watercolor — Spring Bugs</div>
+          </div>
+          <span class="activity-category cat-fine">FINE MOTOR</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Tear strips of painter's tape and let Odie press them onto watercolor paper in any pattern he wants — lines, X shapes, a mess, whatever. Then give him a watercolor palette and a wide brush and let him paint the whole page. When it's fully dry (30 minutes), peel the tape together and watch the white shapes appear. Name the shapes: "That one looks like a caterpillar leg. What do you think?" This activity works best at a low table while Mazzy is in her bouncer nearby.</div>
+          <div class="activity-why">Peeling tape requires precise pincer grip and deliberate force modulation — both fine motor skills that directly scaffold later pencil control — while the reveal moment provides the intrinsic motivation that sustains attention. <a href="https://theartfulparent.com/tape-resist-watercolor-painting/" target="_blank" rel="noopener">Tape Resist Watercolor for Toddlers — The Artful Parent</a></div>
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">5</div>
+            <div class="activity-title">Vet Clinic for Stuffed Animals</div>
+          </div>
+          <span class="activity-category cat-imaginative">IMAGINATIVE PLAY</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Set up a "vet clinic" on the living room floor: a small bin with a popsicle stick (thermometer), a strip of fabric (bandage), a bowl of water (medicine), and a notepad. Odie is the doctor. Bring in his stuffed animals one at a time with a "problem" — the bear has a sore paw, the dog is tired, the elephant ate too much. Let him diagnose and treat. You play the worried pet owner. When he's stuck, ask "what do vets do next?" not "do this."</div>
+          <div class="activity-why">Dr. Becky Kennedy's framework identifies dramatic play as the primary way preschoolers process emotions and practice empathy — playing the caregiver role specifically builds self-regulation by giving the child power over someone else's "distress" in a safe container. <a href="https://www.goodinside.com/podcast/" target="_blank" rel="noopener">Dr. Becky Kennedy on Play and Emotional Development — Good Inside Podcast</a></div>
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">MEDIUM</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">6</div>
+            <div class="activity-title">Denver Public Library — Storytime at Hampden Branch</div>
+          </div>
+          <span class="activity-category cat-social">SOCIAL-EMOTIONAL</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Hampden Branch holds weekly preschool storytimes — check the current schedule and attend one this week. After the storytime, sit together and ask: "Which character felt scared? Which one felt brave? Did you ever feel like that?" Don't rush past his answer. If he says "the bear was mean," try "I wonder what made the bear act that way" — Good Inside's "curiosity over correction" move.</div>
+          <div class="activity-why">Structured group storytime builds tolerance for shared attention and transitions (both executive function challenges for 3.5-year-olds), while post-story emotional inquiry builds the vocabulary research links to later empathy and conflict resolution skills. <a href="https://www.denverlibrary.org/events?type=storytime" target="_blank" rel="noopener">Denver Public Library — Kids Storytime Schedule</a></div>
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="activity-card-header">
+          <div style="display:flex;align-items:center;">
+            <div class="activity-num">7</div>
+            <div class="activity-title">Cardboard Box Truck Build</div>
+          </div>
+          <span class="activity-category cat-creative">CREATIVE</span>
+        </div>
+        <div class="activity-body">
+          <div class="activity-desc">Pull out any large cardboard box and give Odie tape, a marker, and some cardboard scraps. Tell him: "We're making a truck. You're the builder — I'm your helper. Tell me what you need." Resist the urge to design it for him. If he says "it needs wheels," ask "how could we make wheels from this stuff?" Let the result be completely his — uneven, taped a hundred times, beautiful. Add a driver made from a toilet paper roll.</div>
+          <div class="activity-why">Open-ended construction with real materials (not kits) trains divergent thinking and tolerates ambiguity — the mess IS the learning; Vygotsky's ZPD is activated when you ask guiding questions rather than give solutions. <a href="https://www.letthechildrenplay.net/2010/01/how-children-use-loose-parts-in-their.html" target="_blank" rel="noopener">Loose Parts Play Philosophy — Let the Children Play</a></div>
+        </div>
+        <div class="activity-tags">
+          <span class="activity-tag">MEDIUM</span> <span class="activity-tag">INDOOR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
