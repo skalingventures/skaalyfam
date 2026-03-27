@@ -903,6 +903,160 @@
     }
 
     /* ─────────────────────────────────────────────────────────
+       KIDS MENUS
+    ───────────────────────────────────────────────────────── */
+    #odie-menu, #mazzy-menu { scroll-margin-top: 24px; }
+
+    .menu-theme {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-style: italic;
+      color: rgba(28,20,16,0.55);
+      margin-bottom: 20px;
+      padding-left: 4px;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .activity-grid { grid-template-columns: 1fr; }
+    }
+
+    .activity-card {
+      background: var(--warm-white);
+      border: var(--border);
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .activity-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px 10px;
+      border-bottom: 2px solid rgba(28,20,16,0.06);
+    }
+
+    .activity-card.odie-card  { border-left: 6px solid var(--turq); }
+    .activity-card.mazzy-card { border-left: 6px solid var(--coral); }
+
+    .activity-num {
+      width: 28px; height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bangers', cursive;
+      font-size: 16px;
+      color: var(--warm-white);
+      flex-shrink: 0;
+      margin-right: 10px;
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    .odie-card .activity-num  { background: var(--turq); }
+    .mazzy-card .activity-num { background: var(--coral); }
+
+    .activity-title {
+      font-family: 'Bangers', cursive;
+      font-size: 20px;
+      letter-spacing: 1px;
+      line-height: 1.1;
+      color: var(--ink);
+      flex: 1;
+    }
+
+    .activity-category {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      clip-path: polygon(4px 0%, 100% 0%, calc(100% - 4px) 100%, 0% 100%);
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+
+    .cat-practical    { background: rgba(122,140,63,0.2);  color: var(--avocado); }
+    .cat-gross        { background: rgba(232,85,62,0.15);  color: var(--coral); }
+    .cat-fine         { background: rgba(42,191,191,0.15); color: #1A9090; }
+    .cat-creative     { background: rgba(74,44,78,0.15);   color: var(--plum); }
+    .cat-nature       { background: rgba(122,140,63,0.15); color: #5A6B20; }
+    .cat-social       { background: rgba(232,162,62,0.15); color: #C07A10; }
+    .cat-imaginative  { background: rgba(42,191,191,0.12); color: var(--turq); }
+    .cat-motor        { background: rgba(232,85,62,0.12);  color: var(--coral); }
+    .cat-sensory      { background: rgba(42,191,191,0.12); color: #1A9090; }
+    .cat-cognitive    { background: rgba(74,44,78,0.12);   color: var(--plum); }
+    .cat-language     { background: rgba(122,140,63,0.12); color: var(--avocado); }
+
+    .activity-body {
+      padding: 12px 16px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .activity-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin-bottom: 10px;
+      flex: 1;
+    }
+
+    .activity-why {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(28,20,16,0.5);
+      font-style: italic;
+      padding-top: 8px;
+      border-top: 1px dashed rgba(28,20,16,0.1);
+    }
+
+    .activity-tags {
+      display: flex;
+      gap: 6px;
+      padding: 8px 16px 12px;
+      flex-wrap: wrap;
+    }
+
+    .activity-tag {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      background: rgba(28,20,16,0.04);
+      border: 1px solid rgba(28,20,16,0.08);
+    }
+
+    /* Milestone badge for Mazzy */
+    .milestone-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      color: var(--coral);
+      font-weight: 500;
+      margin-top: 6px;
+    }
+
+    .milestone-badge a {
+      color: var(--coral);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* ─────────────────────────────────────────────────────────
        FOOTER
     ───────────────────────────────────────────────────────── */
     .footer {
@@ -962,6 +1116,14 @@
           <span class="nav-pill-dot"></span>
           Weekend Missions
         </a>
+        <a href="#odie-menu" class="nav-pill">
+          <span class="nav-pill-dot"></span>
+          Odie's Menu
+        </a>
+        <a href="#mazzy-menu" class="nav-pill">
+          <span class="nav-pill-dot"></span>
+          Mazzy's Menu
+        </a>
       </nav>
     </div>
   </header>
@@ -982,31 +1144,31 @@
           <div class="section-title">WEEK AHEAD</div>
         </div>
         <div class="section-badge" style="background:var(--ink);color:var(--sand);">
-          WEEK_LABEL_PLACEHOLDER
+          March 30 – April 5, 2026
         </div>
       </div>
 
       <!-- COVERAGE STRIP -->
       <div class="coverage-strip">
-        <div class="coverage-cell COVERAGE_MON_CLASS">
+        <div class="coverage-cell covered">
           <div class="coverage-cell-day">Mon</div>
-          <div class="coverage-cell-status">COVERAGE_MON_STATUS</div>
+          <div class="coverage-cell-status">COVERED</div>
         </div>
-        <div class="coverage-cell COVERAGE_TUE_CLASS">
+        <div class="coverage-cell covered">
           <div class="coverage-cell-day">Tue</div>
-          <div class="coverage-cell-status">COVERAGE_TUE_STATUS</div>
+          <div class="coverage-cell-status">COVERED</div>
         </div>
-        <div class="coverage-cell COVERAGE_WED_CLASS">
+        <div class="coverage-cell partial">
           <div class="coverage-cell-day">Wed</div>
-          <div class="coverage-cell-status">COVERAGE_WED_STATUS</div>
+          <div class="coverage-cell-status">PARTIAL</div>
         </div>
-        <div class="coverage-cell COVERAGE_THU_CLASS">
+        <div class="coverage-cell covered">
           <div class="coverage-cell-day">Thu</div>
-          <div class="coverage-cell-status">COVERAGE_THU_STATUS</div>
+          <div class="coverage-cell-status">COVERED</div>
         </div>
-        <div class="coverage-cell COVERAGE_FRI_CLASS">
+        <div class="coverage-cell covered">
           <div class="coverage-cell-day">Fri</div>
-          <div class="coverage-cell-status">COVERAGE_FRI_STATUS</div>
+          <div class="coverage-cell-status">COVERED</div>
         </div>
       </div>
 
@@ -1017,13 +1179,22 @@
           <div class="day-header">
             <div class="day-header-left">
               <div class="day-name">Monday</div>
-              <div class="day-date">DAY_MON_DATE</div>
+              <div class="day-date">March 30</div>
             </div>
-            <div class="day-status-badge status-DAY_MON_STATUS">DAY_MON_STATUS</div>
+            <div class="day-status-badge status-CLEAR">CLEAR</div>
           </div>
           <div class="day-body">
-            DAY_MON_EVENTS
-            DAY_MON_NOTE
+            <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Newspaper & Market Scan — 10:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Scorecard & Week Ahead — 11:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Team Meeting — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Kylor / KJ: Weekly — 2:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Skaaly Zone 🧘 — 4:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+            <p class="day-note">Kjael's midday meetings run through Mazzy's afternoon nap window (1–3 PM) but he appears WFH — Mardee holds the floor on nap logistics.</p>
           </div>
         </div>
 
@@ -1031,13 +1202,26 @@
           <div class="day-header">
             <div class="day-header-left">
               <div class="day-name">Tuesday</div>
-              <div class="day-date">DAY_TUE_DATE</div>
+              <div class="day-date">March 31</div>
             </div>
-            <div class="day-status-badge status-DAY_TUE_STATUS">DAY_TUE_STATUS</div>
+            <div class="day-status-badge status-CLEAR">CLEAR</div>
           </div>
           <div class="day-body">
-            DAY_TUE_EVENTS
-            DAY_TUE_NOTE
+            <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Customer Acquisition — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Emery & Kjael (BiWeekly) — 10:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Content Review — 11:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup: Sales — 11:45 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup: Growth — 12:30 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Kev & Kjael (Weekly) — 2:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Short Form — 3:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Skaaly Zone 🧘 — 4:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+            <p class="day-note">Kjael is meeting-heavy 9:30 AM–2:00 PM — Mazzy's morning nap (9–10 AM) and afternoon nap (1–3 PM) both fall inside this block; Mardee is solo on kids all morning and into afternoon.</p>
           </div>
         </div>
 
@@ -1045,13 +1229,24 @@
           <div class="day-header">
             <div class="day-header-left">
               <div class="day-name">Wednesday</div>
-              <div class="day-date">DAY_WED_DATE</div>
+              <div class="day-date">April 1</div>
             </div>
-            <div class="day-status-badge status-DAY_WED_STATUS">DAY_WED_STATUS</div>
+            <div class="day-status-badge status-FLAG">FLAG</div>
           </div>
           <div class="day-body">
-            DAY_WED_EVENTS
-            DAY_WED_NOTE
+            <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Customer Success — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Emma with Odie — 9:00 AM <span class="day-event-label label-Sitters">Sitters</span></li>
+<li class="day-event">Standup — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Stand Up: Support & Onboarding — 12:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Brent & Kjael — 1:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">TRIBE Meet & Greet / Ikigai Book Club Kick Off — 1:30 PM <span class="day-event-label label-Kjael">Kjael</span></li>
+<li class="day-event">Agentic Adventures 🤖 — 2:30 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Spring Break — all day <span class="day-event-label label-School">Odie-School</span></li>
+</ul>
+            <p class="day-note">Spring Break means no preschool — Emma is confirmed with Odie at 9 AM which helps, but the 1:30 PM TRIBE event appears to be an external/in-person commitment for Kjael that conflicts directly with Mazzy's afternoon nap window (1–3 PM) AND overlaps with Brent & Kjael at 1:00 PM; confirm whether TRIBE is remote or out-of-house, and ensure Mardee has coverage or backup for the afternoon stretch.</p>
           </div>
         </div>
 
@@ -1059,13 +1254,25 @@
           <div class="day-header">
             <div class="day-header-left">
               <div class="day-name">Thursday</div>
-              <div class="day-date">DAY_THU_DATE</div>
+              <div class="day-date">April 2</div>
             </div>
-            <div class="day-status-badge status-DAY_THU_STATUS">DAY_THU_STATUS</div>
+            <div class="day-status-badge status-COVERED">COVERED</div>
           </div>
           <div class="day-body">
-            DAY_THU_EVENTS
-            DAY_THU_NOTE
+            <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: Product — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Emma with Odie — 9:00 AM <span class="day-event-label label-Sitters">Sitters</span></li>
+<li class="day-event">Virtual Team Lunch — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Steve & Kjael — 11:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">L10 — 12:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Standup — 10:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Legrand Follow Up — 2:00 PM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Skaaly Zone 🧘 — 4:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+            <p class="day-note">Emma confirmed with Odie at 9 AM; Kjael is back-to-back WFH from 9:30 AM through 2:00 PM but appears remote throughout — Mardee manages Mazzy's naps with Odie covered by Emma in the morning.</p>
           </div>
         </div>
 
@@ -1073,13 +1280,24 @@
           <div class="day-header">
             <div class="day-header-left">
               <div class="day-name">Friday</div>
-              <div class="day-date">DAY_FRI_DATE</div>
+              <div class="day-date">April 3</div>
             </div>
-            <div class="day-status-badge status-DAY_FRI_STATUS">DAY_FRI_STATUS</div>
+            <div class="day-status-badge status-COVERED">COVERED</div>
           </div>
           <div class="day-body">
-            DAY_FRI_EVENTS
-            DAY_FRI_NOTE
+            <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Odie Zone 👼 — 7:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Focus Block: VoM & Weekly Brief — 9:30 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Emma with Odie — 9:00 AM <span class="day-event-label label-Sitters">Sitters</span></li>
+<li class="day-event">Tech & Product Roundup — 11:00 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Onboarding Retro: Coaster + Magic Lite — 11:45 AM <span class="day-event-label label-Kjael">Kjael-SC</span></li>
+<li class="day-event">Skaaly Weekly Wrap & Week Ahead — 1:00 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Diego / KJ — 2:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Wind Down — 3:00 PM <span class="day-event-label label-Kjael">Kjael</span></li>
+<li class="day-event">Odie Zone 👼 — 4:30 PM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+</ul>
+            <p class="day-note">Emma confirmed with Odie at 9 AM; Kjael's afternoon clears by 3 PM Wind Down, which lands right at the tail of Mazzy's nap — solid close to the work week.</p>
           </div>
         </div>
 
@@ -1089,26 +1307,33 @@
             <div class="day-header">
               <div class="day-header-left">
                 <div class="day-name">Saturday</div>
-                <div class="day-date">DAY_SAT_DATE</div>
+                <div class="day-date">April 4</div>
               </div>
-              <div class="day-status-badge status-DAY_SAT_STATUS">DAY_SAT_STATUS</div>
+              <div class="day-status-badge status-WATCH">WATCH</div>
             </div>
             <div class="day-body">
-              DAY_SAT_EVENTS
-              DAY_SAT_NOTE
+              <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Dave Cease Memorial — 2:00 PM <span class="day-event-label label-KM">K&M</span></li>
+</ul>
+              <p class="day-note">Dave Cease Memorial at 2:00 PM is a [K&M] event — if both Kjael and Mardee are attending, this lands squarely inside Mazzy's afternoon nap window (1–3 PM) and requires a confirmed sitter for both kids; no sitter is currently showing on the calendar.</p>
             </div>
           </div>
           <div class="weekend-day">
             <div class="day-header">
               <div class="day-header-left">
                 <div class="day-name">Sunday</div>
-                <div class="day-date">DAY_SUN_DATE</div>
+                <div class="day-date">April 5</div>
               </div>
-              <div class="day-status-badge status-DAY_SUN_STATUS">DAY_SUN_STATUS</div>
+              <div class="day-status-badge status-FLAG">FLAG</div>
             </div>
             <div class="day-body">
-              DAY_SUN_EVENTS
-              DAY_SUN_NOTE
+              <ul class="day-events">
+<li class="day-event">Skaaly Zone 🧘💪📝 — 6:00 AM <span class="day-event-label label-Kjael">Kjael-SV</span></li>
+<li class="day-event">Easter at Nana's — 1:00 PM <span class="day-event-label label-KM">K&M</span></li>
+<li class="day-event">🏒 St. Louis Blues @ Colorado Avalanche — 7:30 PM <span class="day-event-label label-KM">K&M</span></li>
+</ul>
+              <p class="day-note">Two back-to-back family outings — Easter at Nana's at 1 PM overlaps Mazzy's afternoon nap window entirely; plan car nap or coordinate nap timing before departure. Blues @ Avs at 7:30 PM is a late evening out — confirm childcare for the game or clarify if kids are coming.</p>
             </div>
           </div>
         </div>
@@ -1119,7 +1344,12 @@
       <div class="flags-panel">
         <div class="flags-eyebrow">⚑ This Week's Flags</div>
         <ul class="flags-list">
-          FLAGS_LIST_PLACEHOLDER
+          <li>**Wednesday April 1 — TRIBE event location:** Confirm whether the 1:30 PM TRIBE Meet & Greet is in-person or remote. If Kjael is leaving the house, afternoon coverage for Mazzy + Odie is currently unconfirmed during nap window.</li>
+<li>**Wednesday April 1 — Spring Break:** No preschool all week (Spring Break marked all-day on Odie-School). Emma covers Wednesday and Thursday/Friday mornings, but Monday and Tuesday have no sitter listed — confirm Odie is accounted for or that the Kjael/Mardee split handles it.</li>
+<li>**Saturday April 4 — Dave Cease Memorial:** [K&M] event at 2:00 PM hits Mazzy's nap window. If both adults attending, no sitter is currently booked — action needed now.</li>
+<li>**Sunday April 5 — Easter at Nana's:** 1:00 PM departure will cut into or eliminate Mazzy's afternoon nap. Decide whether to push nap earlier, do a car nap, or accept the disruption and plan accordingly.</li>
+<li>**Sunday April 5 — Blues @ Avs:** 7:30 PM game is a late night. Confirm whether this is adults-only (sitter needed) or a family outing — either way requires a plan for Mazzy's bedtime routine.</li>
+<li>**Spring Break all week:** No school Monday–Friday for Odie. Emma is confirmed Wed/Thu/Fri mornings. Monday and Tuesday have no sitter listed — verify coverage plan for those mornings given Kjael's meeting load.</li>
         </ul>
       </div>
 
@@ -1334,10 +1564,264 @@
 
     </section>
 
+    <hr class="section-sep" />
+
+    <!-- ══════════════════════════════════════════════════
+         ODIE'S MENU
+    ═══════════════════════════════════════════════════ -->
+    <section id="odie-menu">
+
+      <div class="section-masthead">
+        <div class="section-icon">🦖</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Auto-generated Sunday evening</div>
+          <div class="section-title">ODIE'S MENU</div>
+        </div>
+        <div class="section-badge" style="background:var(--turq);color:var(--ink);">
+          March 30–April 5, 2026
+        </div>
+      </div>
+
+      <div class="menu-theme">Dirt under fingernails and jobs that matter — spring is here and there's real work to do</div>
+
+      <div class="activity-grid">
+        
+        <div class="activity-card odie-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">1</div>
+              <div class="activity-title">Puddle Science Walk at Westerly Creek Greenway</div>
+            </div>
+            <span class="activity-category cat-nature">NATURE</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Head out Monday morning while the weekend's temperature swing has left interesting conditions — look for frost on shadowed patches, soft mud along the creek edge, and early spring insects. Give Odie a small jar and let him collect one "specimen" (a pebble, a seed pod, a twig with a bud). When you get home, draw it together on paper and label it whatever he decides to call it. Keep it on the windowsill as an ongoing observation.</div>
+            <div class="activity-why">Unstructured nature investigation builds scientific thinking through direct sensory engagement — Odie is in what forest school practitioners call the "tool use and collection" phase, where objects from nature anchor executive function and language simultaneously. <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Westerly-Creek-Greenway" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px;">Westerly Creek Greenway Trail Info</a></div>
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">MEDIUM</span> <span class="activity-tag">OUTDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card odie-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">2</div>
+              <div class="activity-title">Seed Starting Station</div>
+            </div>
+            <span class="activity-category cat-practical">PRACTICAL LIFE</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Set up a small tray with four or five small cups, a bag of potting mix, and a packet of fast-germinating seeds — radishes or sunflowers work best. Show Odie how to spoon soil into each cup, poke a hole with his finger to the second knuckle, drop in one seed, and cover gently. He waters with a spray bottle. Label cups with his drawings instead of words. Put in a sunny window; check daily. This is his job for the next two weeks.</div>
+            <div class="activity-why">Montessori practical life activities that produce a real, visible result over time build delayed gratification and a sense of genuine household contribution — the child is not pretending to garden, he is gardening. <a href="https://www.themontessorinotebook.com/practical-life-plant-care/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px;">Montessori Practical Life: Plant Care</a></div>
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card odie-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">3</div>
+              <div class="activity-title">Obstacle Course at Globeville Landing Park</div>
+            </div>
+            <span class="activity-category cat-gross">GROSS MOTOR</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Sunday's 77°F forecast is the best weather day of the week — use it. Globeville Landing is underused and has open grass, a paved path along the Platte, and natural terrain features. Bring chalk and draw a start/finish line. Time him running to a tree and back. Build a simple course: run to the fence, hop on one foot three times, spin, crawl under the picnic table, sprint home. Let him redesign the course on lap two.</div>
+            <div class="activity-why">Gross motor challenges with a self-imposed rule structure (hopping, spinning, crawling) are early executive function training — the child must hold the sequence in working memory while also controlling his body, which is precisely Vygotsky's ZPD for this age. <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Globeville-Landing-Park" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px;">Globeville Landing Confluence Park</a></div>
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">HIGH</span> <span class="activity-tag">OUTDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card odie-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">4</div>
+              <div class="activity-title">Tape Resist Watercolor — Spring Bugs</div>
+            </div>
+            <span class="activity-category cat-fine">FINE MOTOR</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Tear strips of painter's tape and let Odie press them onto watercolor paper in any pattern he wants — lines, X shapes, a mess, whatever. Then give him a watercolor palette and a wide brush and let him paint the whole page. When it's fully dry (30 minutes), peel the tape together and watch the white shapes appear. Name the shapes: "That one looks like a caterpillar leg. What do you think?" This activity works best at a low table while Mazzy is in her bouncer nearby.</div>
+            <div class="activity-why">Peeling tape requires precise pincer grip and deliberate force modulation — both fine motor skills that directly scaffold later pencil control — while the reveal moment provides the intrinsic motivation that sustains attention. <a href="https://theartfulparent.com/tape-resist-watercolor-painting/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px;">Tape Resist Watercolor for Toddlers — The Artful Parent</a></div>
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card odie-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">5</div>
+              <div class="activity-title">Vet Clinic for Stuffed Animals</div>
+            </div>
+            <span class="activity-category cat-imaginative">IMAGINATIVE PLAY</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Set up a "vet clinic" on the living room floor: a small bin with a popsicle stick (thermometer), a strip of fabric (bandage), a bowl of water (medicine), and a notepad. Odie is the doctor. Bring in his stuffed animals one at a time with a "problem" — the bear has a sore paw, the dog is tired, the elephant ate too much. Let him diagnose and treat. You play the worried pet owner. When he's stuck, ask "what do vets do next?" not "do this."</div>
+            <div class="activity-why">Dr. Becky Kennedy's framework identifies dramatic play as the primary way preschoolers process emotions and practice empathy — playing the caregiver role specifically builds self-regulation by giving the child power over someone else's "distress" in a safe container. <a href="https://www.goodinside.com/podcast/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px;">Dr. Becky Kennedy on Play and Emotional Development — Good Inside Podcast</a></div>
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">MEDIUM</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card odie-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">6</div>
+              <div class="activity-title">Denver Public Library — Storytime at Hampden Branch</div>
+            </div>
+            <span class="activity-category cat-social">SOCIAL-EMOTIONAL</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Hampden Branch holds weekly preschool storytimes — check the current schedule and attend one this week. After the storytime, sit together and ask: "Which character felt scared? Which one felt brave? Did you ever feel like that?" Don't rush past his answer. If he says "the bear was mean," try "I wonder what made the bear act that way" — Good Inside's "curiosity over correction" move.</div>
+            <div class="activity-why">Structured group storytime builds tolerance for shared attention and transitions (both executive function challenges for 3.5-year-olds), while post-story emotional inquiry builds the vocabulary research links to later empathy and conflict resolution skills. <a href="https://www.denverlibrary.org/events?type=storytime" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px;">Denver Public Library — Kids Storytime Schedule</a></div>
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card odie-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">7</div>
+              <div class="activity-title">Cardboard Box Truck Build</div>
+            </div>
+            <span class="activity-category cat-creative">CREATIVE</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Pull out any large cardboard box and give Odie tape, a marker, and some cardboard scraps. Tell him: "We're making a truck. You're the builder — I'm your helper. Tell me what you need." Resist the urge to design it for him. If he says "it needs wheels," ask "how could we make wheels from this stuff?" Let the result be completely his — uneven, taped a hundred times, beautiful. Add a driver made from a toilet paper roll.</div>
+            <div class="activity-why">Open-ended construction with real materials (not kits) trains divergent thinking and tolerates ambiguity — the mess IS the learning; Vygotsky's ZPD is activated when you ask guiding questions rather than give solutions. <a href="https://www.letthechildrenplay.net/2010/01/how-children-use-loose-parts-in-their.html" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-decoration-color:var(--turq);text-underline-offset:2px;">Loose Parts Play Philosophy — Let the Children Play</a></div>
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">MEDIUM</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <hr class="section-sep" />
+
+    <!-- ══════════════════════════════════════════════════
+         MAZZY'S MENU
+    ═══════════════════════════════════════════════════ -->
+    <section id="mazzy-menu">
+
+      <div class="section-masthead">
+        <div class="section-icon">🌸</div>
+        <div class="section-title-group">
+          <div class="section-eyebrow">Auto-generated Sunday evening</div>
+          <div class="section-title">MAZZY'S MENU</div>
+        </div>
+        <div class="section-badge" style="background:var(--coral);color:var(--warm-white);">
+          March 30–April 5, 2026
+        </div>
+      </div>
+
+      <div class="menu-theme">Sitting tall and reaching far — hands that grab on purpose and a voice that's starting to talk back</div>
+
+      <div class="activity-grid">
+        
+        <div class="activity-card mazzy-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">1</div>
+              <div class="activity-title">Supported Sit with Treasure Basket</div>
+            </div>
+            <span class="activity-category cat-motor">MOTOR</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Prop Mazzy in a supported sitting position — Boppy pillow behind her, rolled blanket in front if needed — and place a low, flat basket within reach containing 4–5 objects with different textures: a wooden ring, a silicone spoon, a small cloth square, a smooth river rock (too large to mouth), a crinkle fabric toy. Let her reach, grab, mouth, and examine without interference. Watch which she returns to. Don't rotate objects out mid-session — repetition is how she builds category knowledge.</div>
+            
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card mazzy-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">2</div>
+              <div class="activity-title">Peek-a-Boo with a Cloth — Object Permanence Primer</div>
+            </div>
+            <span class="activity-category cat-cognitive">COGNITIVE</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Sit face-to-face with Mazzy and place one of her favorite small toys on the floor between you. Let her see it clearly, then slowly drape a small cloth over it while she watches. Pause and watch her face — does she look toward it? Reach for the cloth? Then lift the cloth: "There it is!" Repeat five or six times, then switch: hide your own face with the cloth instead and reveal with a big smile. Follow her lead on pacing — if she looks away, she's done.</div>
+            
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card mazzy-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">3</div>
+              <div class="activity-title">Outdoor Blanket Time in the Backyard — Spring Air and Texture</div>
+            </div>
+            <span class="activity-category cat-sensory">SENSORY</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">On Saturday or Sunday (both days forecast above 75°F by midday), take Mazzy outside on a blanket in direct but not harsh sunlight. Let her feel the texture of the blanket edge, a patch of grass if she reaches for it, and the air on her bare feet. No toys required. Narrate in a calm, quiet voice: "You can hear the wind. There's a bird. That's grass — it tickles." Let her track moving leaves overhead. 15–20 minutes is plenty.</div>
+            
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">LOW</span> <span class="activity-tag">OUTDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card mazzy-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">4</div>
+              <div class="activity-title">Consonant Call-and-Response</div>
+            </div>
+            <span class="activity-category cat-language">LANGUAGE</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">During a calm, alert wake window (typically post-nap, well-fed), sit close to Mazzy face-to-face and let her babble first. When she produces a consonant sound — ba, da, ma, ga — mirror it back to her exactly, then pause and wait. See if she responds. Don't flood her with new sounds — stay in her register. If she gives you "babababa," give it back, pause, and see what she does. This is a conversation, not a lesson.</div>
+            
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+
+        <div class="activity-card mazzy-card">
+          <div class="activity-card-header">
+            <div style="display:flex;align-items:center;">
+              <div class="activity-num">5</div>
+              <div class="activity-title">Tummy Time on a Rolled Towel — Extended Arm Press</div>
+            </div>
+            <span class="activity-category cat-motor">MOTOR</span>
+          </div>
+          <div class="activity-body">
+            <div class="activity-desc">Place a firmly rolled bath towel under Mazzy's chest so her arms hang forward past the roll. This elevation changes the challenge: instead of lifting her head from flat, she's working on weight-bearing through straight arms — a progression beyond basic tummy time. Place a small mirror or your face at her eye level on the floor. Target 3–5 minutes, 2–3 times across the day. If she fusses at minute two, narrate what you see before rescuing: "You're working so hard. Your arms are pushing."</div>
+            
+          </div>
+          <div class="activity-tags">
+            <span class="activity-tag">MEDIUM</span> <span class="activity-tag">INDOOR</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
     <!-- FOOTER -->
     <div class="footer">
       <div class="footer-logo">SKAALY FAM</div>
-      <div class="footer-sub">Week Ahead · Sun evening &nbsp;|&nbsp; Weekend Missions · Wed evening &nbsp;|&nbsp; skaalyfam.com</div>
+      <div class="footer-sub">Week Ahead · Sun &nbsp;|&nbsp; Weekend Missions · Wed &nbsp;|&nbsp; Odie & Mazzy Menus · Sun &nbsp;|&nbsp; skaalyfam.com</div>
     </div>
 
   </div><!-- /page -->
