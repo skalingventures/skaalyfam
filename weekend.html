@@ -53,21 +53,31 @@
     /* missions */
     .missions{display:flex;flex-direction:column;gap:20px;margin-bottom:24px}
     .mission-panel{background:var(--warm-white);border:var(--border);overflow:hidden;max-width:100%}
-    .mission-panel.outdoor{border-left:8px solid var(--turq)}
-    .mission-panel.intown{border-left:8px solid var(--avocado)}
-    .mission-panel.basecamp{border-left:8px solid var(--plum)}
+    .mission-panel.local{border-left:8px solid var(--turq)}
+    .mission-panel.culture{border-left:8px solid var(--avocado)}
+    .mission-panel.stretch{border-left:8px solid var(--plum)}
     .mission-header{padding:20px 22px 16px;border-bottom:2px solid rgba(28,20,16,.07);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
-    .mission-header.outdoor{background:#EBF8F8}
-    .mission-header.intown{background:#F2F5E8}
-    .mission-header.basecamp{background:#F3EEF5}
+    .mission-header.local{background:#EBF8F8}
+    .mission-header.culture{background:#F2F5E8}
+    .mission-header.stretch{background:#F3EEF5}
     .mission-type-label{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:4px;text-transform:uppercase;margin-bottom:5px}
-    .outdoor .mission-type-label{color:var(--turq)}
-    .intown .mission-type-label{color:var(--avocado)}
-    .basecamp .mission-type-label{color:var(--plum)}
+    .local .mission-type-label{color:var(--turq)}
+    .culture .mission-type-label{color:var(--avocado)}
+    .stretch .mission-type-label{color:var(--plum)}
     .mission-name{font-family:'Bangers',cursive;font-size:clamp(22px,4.5vw,32px);letter-spacing:2px;line-height:1.1;color:var(--ink);word-break:break-word}
     .mission-badge{flex-shrink:0;position:relative;width:56px;height:56px;display:flex;align-items:center;justify-content:center}
     .mission-badge svg{position:absolute;inset:0;width:100%;height:100%}
     .mission-badge-num{position:relative;font-family:'Bangers',cursive;font-size:26px;letter-spacing:1px;color:var(--warm-white);z-index:1}
+
+    /* commitment badges */
+    .commit-row{display:flex;flex-wrap:wrap;gap:6px;padding:10px 22px;background:rgba(28,20,16,.03);border-bottom:1px solid rgba(28,20,16,.05)}
+    .commit-badge{font-family:'Oswald',sans-serif;font-weight:500;font-size:10px;letter-spacing:.5px;padding:3px 10px;display:inline-flex;align-items:center;gap:4px;border:1.5px solid rgba(28,20,16,.1)}
+    .commit-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;color:rgba(28,20,16,.4);font-weight:700}
+    .badge-green{background:rgba(122,140,63,.12);border-color:rgba(122,140,63,.3)}
+    .badge-amber{background:rgba(232,162,62,.12);border-color:rgba(232,162,62,.3)}
+    .badge-red{background:rgba(232,85,62,.1);border-color:rgba(232,85,62,.25)}
+    .badge-neutral{background:rgba(28,20,16,.03);border-color:rgba(28,20,16,.1)}
+
     .mission-meta{display:flex;flex-wrap:wrap;gap:8px;padding:12px 22px;background:rgba(28,20,16,.02);border-bottom:1px solid rgba(28,20,16,.05);overflow:hidden}
     .meta-tag{font-family:'Oswald',sans-serif;font-weight:500;font-size:11px;letter-spacing:.5px;padding:4px 12px;display:flex;align-items:center;gap:6px;background:#fff;border:2px solid rgba(28,20,16,.1);min-width:0;word-break:break-word}
     .meta-tag-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(28,20,16,.35);font-weight:700}
@@ -80,26 +90,28 @@
     .logistics-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:6px}
     .logistics-list li{font-size:13px;line-height:1.5;padding-left:18px;position:relative;color:rgba(28,20,16,.8);word-break:break-word;overflow-wrap:anywhere}
     .logistics-list li::before{content:'◆';position:absolute;left:0;font-size:7px;top:4px}
-    .outdoor .logistics-list li::before{color:var(--turq)}
-    .intown .logistics-list li::before{color:var(--avocado)}
-    .basecamp .logistics-list li::before{color:var(--plum)}
+    .local .logistics-list li::before{color:var(--turq)}
+    .culture .logistics-list li::before{color:var(--avocado)}
+    .stretch .logistics-list li::before{color:var(--plum)}
     .weather-gate-block{background:var(--plum);padding:14px 16px}
     .weather-gate-label{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--turq);margin-bottom:5px}
     .weather-gate-text{font-size:12px;color:rgba(253,250,244,.8);line-height:1.55}
 
-    /* command */
+    /* command — 4-card grid */
     .command-panel{background:var(--plum);border:var(--border);padding:28px;position:relative;overflow:hidden}
     .command-panel::before{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:100% 0 100% 0;background:rgba(42,191,191,.08);transform:rotate(45deg)}
     .command-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--turq);margin-bottom:6px}
     .command-title{font-family:'Bangers',cursive;font-size:clamp(32px,6vw,48px);letter-spacing:3px;color:var(--warm-white);text-shadow:2px 2px 0 rgba(0,0,0,.25);margin-bottom:22px}
-    .command-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative}
+    .command-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
     .command-card{overflow:hidden}
-    @media(max-width:640px){.command-grid{grid-template-columns:1fr}}
+    @media(max-width:720px){.command-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:480px){.command-grid{grid-template-columns:1fr}}
     .command-card{background:rgba(253,250,244,.06);border:1px solid rgba(253,250,244,.12);padding:16px;position:relative}
     .command-card-accent{position:absolute;top:0;left:0;right:0;height:3px}
     .command-card:nth-child(1) .command-card-accent{background:var(--coral)}
     .command-card:nth-child(2) .command-card-accent{background:var(--turq)}
     .command-card:nth-child(3) .command-card-accent{background:var(--avocado)}
+    .command-card:nth-child(4) .command-card-accent{background:var(--warm-white)}
     .command-card-label{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(253,250,244,.4);margin-bottom:8px;margin-top:6px}
     .command-card-pick{font-family:'Bangers',cursive;font-size:22px;letter-spacing:1px;color:var(--warm-white);line-height:1.1;margin-bottom:6px}
     .command-card-why{font-size:12px;color:rgba(253,250,244,.6);line-height:1.5}
@@ -111,7 +123,7 @@
   <div class="topbar">
     <a href="/" class="topbar-back">&#8592; HQ</a>
     <div class="topbar-brand">SKAALY FAM</div>
-    <div class="topbar-date">April 4–5, 2026</div>
+    <div class="topbar-date">April 11–12, 2026</div>
   </div>
 
   <div class="page">
@@ -125,37 +137,37 @@
       <div class="intel-card sat">
         <div class="intel-label">Saturday Weather</div>
         <div class="intel-day">SATURDAY</div>
-        <span class="weather-badge GREAT">GREAT</span>
-        <div class="intel-detail">44–64°F, 4% chance rain, up to 12 mph wind</div>
+        <span class="weather-badge TOUGH">TOUGH</span>
+        <div class="intel-detail">54–76°F, 51% chance rain, up to 20 mph wind</div>
       </div>
       <div class="intel-card sun">
         <div class="intel-label">Sunday Weather</div>
         <div class="intel-day">SUNDAY</div>
-        <span class="weather-badge GREAT">GREAT</span>
-        <div class="intel-detail">46–66°F, 2% chance rain, up to 12 mph wind</div>
+        <span class="weather-badge RISKY">RISKY</span>
+        <div class="intel-detail">53–75°F, 29% chance rain, up to 16 mph wind</div>
       </div>
       <div class="intel-card windows">
         <div class="intel-label">Open Windows</div>
         <div class="window-entry">
           <div class="window-day-label">Saturday</div>
-          <div class="window-time">8:30–11:45 AM (before Mazzy's 1 PM nap window; note first nap ~9–10 AM clips this — see note below)<br>10:15 AM–12:30 PM (post first-nap strike if you let Mazzy finish her morning nap at home first)</div>
+          <div class="window-time">BLOCKED — Odie + Rayna all-day playdate (see Calendar Notes)</div>
         </div>
         <div class="window-entry">
           <div class="window-day-label">Sunday</div>
-          <div class="window-time">8:30–10:00 AM (tight pre-nap)<br>10:15 AM–12:30 PM (post first-nap, before Easter at Nana's at 1 PM)</div>
+          <div class="window-time">8:30 AM–12:30 PM<br>2:30–5:30 PM (post-nap)</div>
         </div>
-        <div class="cal-note"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px"><li>Saturday 2:00–5:00 PM: Dave Cease Memorial (K &amp; M shared) — afternoon is fully locked. Any Saturday activity must wrap by 1:30 PM at the absolute latest to allow reset time.</li><li>Sunday 1:00–4:00 PM: Easter at Nana's — this covers Mazzy's second nap window entirely. Nap-on-the-go or early nap strategy required for Sunday afternoon. Plan Sunday morning accordingly — family needs to be home and regrouped by 12:15 PM.</li><li>Sunday 7:30–9:30 PM: Avalanche vs. Blues — adult evening commitment. Kids need to be wound down and handed off before 7 PM. Don't let Sunday morning run long.</li><li>Mazzy's 9–10 AM nap clips Saturday and Sunday mornings. Best strategy both days: let Mazzy nap at home, then launch at 10:15 AM with a refreshed baby and a full 2-hour window before her afternoon nap begins around 1 PM.</li></ul></div>
+        <div class="cal-note"><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px"><li>Saturday is effectively a playdate day for Odie and Rayna — all-day commitment. No outbound missions Saturday. All three mission windows are Sunday. Sunday is RISKY (29% rain, manageable) with a solid morning window before Odie's nap and a usable late-afternoon window after. Kjael's Skaaly Zone runs 6–7 AM Sunday, meaning he's clear and present by 7 AM.</li></ul></div>
       </div>
     </div>
 
     <!-- MISSIONS -->
     <div class="missions">
       
-    <div class="mission-panel outdoor">
-      <div class="mission-header outdoor">
+    <div class="mission-panel local">
+      <div class="mission-header local">
         <div>
-          <div class="mission-type-label">Mission 1 — Outdoor Strike</div>
-          <div class="mission-name">Duck Island &amp; Dirt Trail Loop at Wash Park</div>
+          <div class="mission-type-label">Mission 1 — Local Easy</div>
+          <div class="mission-name">Odie's Truck &amp; Terrain Lab — Garfield Lake + Bayer Median Ditch Walk</div>
         </div>
         <div class="mission-badge">
           <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
@@ -164,44 +176,51 @@
           <span class="mission-badge-num">1</span>
         </div>
       </div>
+      <div class="commit-row"><span class="commit-badge badge-green"><span class="commit-label">Lift</span> LOW</span>
+          <span class="commit-badge badge-green"><span class="commit-label">Drive</span> LOCAL EASY</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Duration</span> 2 hrs</span>
+          <span class="commit-badge badge-green"><span class="commit-label">Pack</span> LIGHT</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Nap Fit</span> CLEAN — Back home by 11 AM, lunch by 12, nap on schedule.</span>
+          <span class="commit-badge badge-green"><span class="commit-label">Bailout</span> EASY</span>
+          <span class="commit-badge badge-green"><span class="commit-label">Solo Parent</span> YES</span></div>
       <div class="mission-meta">
-          <div class="meta-tag"><span class="meta-tag-label">When</span> Saturday, 10:15 AM–12:15 PM (post Mazzy's first nap, home by 12:30 for lunch before afternoon nap)</div>
-          <div class="meta-tag"><span class="meta-tag-label">Where</span> <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Washington-Park" target="_blank" rel="noopener">Washington Park</a> — Washington Park neighborhood, south Denver</div>
+          <div class="meta-tag"><span class="meta-tag-label">When</span> Sunday, 8:45–10:45 AM</div>
+          <div class="meta-tag"><span class="meta-tag-label">Where</span> <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Find-a-Park/Garfield-Lake-Park" target="_blank" rel="noopener">Garfield Lake Park</a> — Overland neighborhood + <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Trails/Trail-Directory/Harvard-Gulch-Trail" target="_blank" rel="noopener">Harvard Gulch Trail</a></div>
           <div class="meta-tag"><span class="meta-tag-label">Drive</span> 12 min from Capitol Hill</div>
-          <div class="meta-tag"><span class="meta-tag-label">Cost</span> $0 (park) + ~$12–16 for coffee/snack at <a href="https://www.washperk.com/" target="_blank" rel="noopener">Wash Perk</a> — total ~$15</div>
+          <div class="meta-tag"><span class="meta-tag-label">Cost</span> Free</div>
       </div>
       <div class="mission-body">
         <div>
           <div class="section-kicker">The Plan</div>
-          <p class="plan-text">Roll out at 10:15 once Mazzy's up and fed. Load her into the carrier and put Odie in charge of the duck count — his official job is to find and report every duck on the east lake before you hit the far side of the island. Do the 1.5-mile inner loop counterclockwise so Odie can run the wide open grass flats between the boathouse and the rose garden while the adults walk at Mazzy's pace. Finish the loop, swing by <a href="https://www.washperk.com/" target="_blank" rel="noopener">Wash Perk</a> on the south side of the park for a coffee and a muffin Odie can destroy on a bench, then load up and head home before 12:30 for lunch and Mazzy's second nap.</p>
+          <p class="plan-text">Hit Garfield Lake by 8:50 AM — Odie's job is Official Mud Inspector and Duck Counter along the 0.6-mile lake loop while Mazzy rides in the carrier soaking up the morning light and movement. After one lake loop, cut east on the <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Trails/Trail-Directory/Harvard-Gulch-Trail" target="_blank" rel="noopener">Harvard Gulch Trail</a> for 10–15 minutes: this is a genuine drainage ditch / urban creek corridor that Odie will register as infrastructure adventure — look for water flow, drain pipes, and anything that moves. Come back to the car by 10:30 AM, stop at <a href="https://rosenbergsbagels.com/" target="_blank" rel="noopener">Rosenberg's Bagels on Broadway</a> (10 min away, drive-through or grab-and-go) for a bagel and a coffee, home by 11.</p>
         </div>
         <div>
           <div class="section-kicker">Why This Weekend</div>
-          <p class="why-text">Saturday is genuinely gorgeous — 64°F in early April in Denver is a gift — and the Saturday afternoon is locked with the Dave Cease Memorial, so the morning window is the only real outdoor slot. Wash Park is zero-friction, 12 minutes away, and the open grass is perfect for a 3.5-year-old who's been cooped up all week.</p>
+          <p class="why-text">Saturday is locked to the playdate so Sunday morning is the only real outdoor window — keeping it local and low-lift is the right call. The gulch will have actual water flow after Saturday's rain, which makes it genuinely interesting for a truck-and-water kid, not just a generic walk.</p>
         </div>
         <div class="logistics-block">
           <div>
             <div class="section-kicker">Logistics</div>
             <ul class="logistics-list">
-              <li>Carrier for Mazzy (Ergobaby or similar) — stroller optional but the inner loop path handles either</li>
-              <li>Pack a snack bag for Odie so the walk home doesn't devolve; goldfish crackers, a squeeze pouch</li>
-              <li>Wash Perk opens at 7 AM on weekends — no wait, no reservation needed</li>
-              <li>Wind at 12 mph is breezy; bring a light layer for Mazzy and a hat for Odie</li>
-              <li>Must be rolling home by 12:30 latest — Mazzy's second nap starts ~1 PM and the Dave Cease Memorial is at 2:00 PM</li>
+              <li>Carrier for Mazzy (Mazzy's 9–10 AM nap window overlaps start — she'll likely doze in the carrier en route or on the walk, which is fine)</li>
+              <li>Bring Odie's rubber boots — the gulch after rain will be legitimately muddy</li>
+              <li>No booking, no cost, no gear complexity</li>
+              <li>Rosenberg's can get a line Sunday morning — order ahead on their app if you want to avoid a wait</li>
+              <li>Watch for wind; 16 mph is nothing in the gulch corridor but can be annoying at the open lake — start at the lake, end in the gulch for natural wind shelter</li>
             </ul>
           </div>
           <div class="weather-gate-block">
             <div class="weather-gate-label">&#9729; Weather Gate</div>
-            <p class="weather-gate-text">GREAT both days — 64°F Saturday with only 4% rain chance and 12 mph wind is ideal. Wind is the only variable; Mazzy in the carrier will be fine with a light layer. If somehow weather degrades, pivot to the <a href="https://www.botanicgardens.org/" target="_blank" rel="noopener">Denver Botanic Gardens</a> conservatory instead (~$15/adult, Odie free under 12).</p>
+            <p class="weather-gate-text">RISKY — Light drizzle is fine here; the lake loop and gulch trail have real drainage. If it's actively raining, pivot to the <a href="https://www.denverfirefighters.org/museum/" target="_blank" rel="noopener">Denver Fire Station No. 1 Museum</a> (free, 10 min, Odie loses his mind over the trucks) or a run to <a href="https://www.lowes.com/store/CO-Denver/0559" target="_blank" rel="noopener">BuildASign / Lowe's on Broadway</a> for a cardboard architecture session at home.</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="mission-panel intown">
-      <div class="mission-header intown">
+    <div class="mission-panel culture">
+      <div class="mission-header culture">
         <div>
-          <div class="mission-type-label">Mission 2 — In-Town Op</div>
-          <div class="mission-name">Oxbow Skate Park Watch + Confluence Park Wade</div>
+          <div class="mission-type-label">Mission 2 — City / Culture / Nature</div>
+          <div class="mission-name">Nature &amp; Bones at the Denver Museum of Nature &amp; Science — Odie Runs the Prehistoric Floor</div>
         </div>
         <div class="mission-badge">
           <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
@@ -210,40 +229,51 @@
           <span class="mission-badge-num">2</span>
         </div>
       </div>
+      <div class="commit-row"><span class="commit-badge badge-amber"><span class="commit-label">Lift</span> MEDIUM</span>
+          <span class="commit-badge badge-green"><span class="commit-label">Drive</span> LOCAL EASY</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Duration</span> 3 hrs</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Pack</span> MEDIUM (carrier for Mazzy, snack bag for Odie)</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Nap Fit</span> CLEAN — Aim to leave by 12:15 PM, home for lunch by 12:45, nap on schedule.</span>
+          <span class="commit-badge badge-green"><span class="commit-label">Bailout</span> EASY</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Solo Parent</span> YES (stroller + carrier combo works; one parent can peel with Mazzy if needed)</span></div>
       <div class="mission-meta">
-          <div class="meta-tag"><span class="meta-tag-label">When</span> Sunday, 10:15 AM–12:00 PM (post Mazzy's first nap, home by 12:15 to regroup before Easter at Nana's at 1 PM — tight but doable)</div>
-          <div class="meta-tag"><span class="meta-tag-label">Where</span> <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Confluence-Park" target="_blank" rel="noopener">Confluence Park</a> + <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Oxbow-Park-Preserve" target="_blank" rel="noopener">Oxbow Park & Preserve</a> — LoHi / River North, north Denver</div>
-          <div class="meta-tag"><span class="meta-tag-label">Drive</span> 10 min from Capitol Hill</div>
-          <div class="meta-tag"><span class="meta-tag-label">Cost</span> $0</div>
+          <div class="meta-tag"><span class="meta-tag-label">When</span> Sunday, 9:00 AM–12:15 PM</div>
+          <div class="meta-tag"><span class="meta-tag-label">Where</span> <a href="https://www.dmns.org/" target="_blank" rel="noopener">Denver Museum of Nature & Science</a> — City Park neighborhood</div>
+          <div class="meta-tag"><span class="meta-tag-label">Drive</span> 8 min from Capitol Hill</div>
+          <div class="meta-tag"><span class="meta-tag-label">Cost</span> ~$36 adults (kids 3 and under free — Odie is 3.5 so confirm current age policy; DMNS is free for 2 and under, Odie may be $14, check at door). Membership pays off at ~2 visits/year.</div>
       </div>
       <div class="mission-body">
         <div>
           <div class="section-kicker">The Plan</div>
-          <p class="plan-text">Pull into the Confluence Park lot off 15th Street around 10:20 and walk the short path down to the <a href="https://www.denver.gov/southplatterivertrail" target="_blank" rel="noopener">South Platte River trail</a> — Odie's job is to collect exactly 10 "good rocks" from the gravel bar at the river's edge while Mazzy rides in the carrier and watches the water. Then walk north 5 minutes to the edge of <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Oxbow-Park-Preserve" target="_blank" rel="noopener">Oxbow Park</a> where the skate park draws weekend skaters — Odie will absolutely lose his mind watching teenagers shred the bowl while he eats a snack on the grass. Keep it to 90 minutes max, load everyone up by 11:55, and be home by 12:15 to feed Mazzy and get Easter outfits on.</p>
+          <p class="plan-text">Arrive at <a href="https://www.dmns.org/" target="_blank" rel="noopener">DMNS</a> at 9:00 AM sharp — early entry before it fills up. Odie's mission is <a href="https://www.dmns.org/visit/exhibitions/prehistoric-journey/" target="_blank" rel="noopener">Prehistoric Journey</a> first: he is the Lead Paleontologist, and his job is to find the biggest skull on the floor (give him the job before you walk in). Let him run the dinosaur and ancient ocean halls for 60–75 minutes at full Odie pace. Mazzy rides in the carrier, wide-eyed at the scale and light — the high ceilings and specimen cases are genuinely stimulating for a 6-month-old. After prehistoric, drop into the <a href="https://www.dmns.org/visit/exhibitions/space-odyssey/" target="_blank" rel="noopener">Space Odyssey</a> hall for 20 minutes (Odie is at the age where the rockets register), grab a snack from the café, then do a loose loop through <a href="https://www.dmns.org/visit/exhibitions/gems-minerals-and-earth-science/" target="_blank" rel="noopener">Gems & Minerals</a> before heading out by 12:15.</p>
         </div>
         <div>
           <div class="section-kicker">Why This Weekend</div>
-          <p class="why-text">Sunday is the tighter day with Easter at Nana's at 1 PM and the Avs game at 7:30, so you need a plan that's short, low-pack, and easy to abort. This route is 10 minutes from home, requires zero gear beyond the carrier and a snack, and gives Odie genuine stimulation (skaters, river, rocks) without requiring anyone to be "on" for more than 90 minutes.</p>
+          <p class="why-text">Saturday is locked, Sunday is RISKY weather, and the family hasn't hit DMNS recently — it's not in the 21-day archive. Prehistoric Journey is a genuine Odie-alignment hit (dinosaurs, bones, scale) and the indoor format takes weather entirely off the table. Also: City Park is gorgeous in April if the weather breaks post-nap for a bonus lap.</p>
         </div>
         <div class="logistics-block">
           <div>
             <div class="section-kicker">Logistics</div>
             <ul class="logistics-list">
-              <li>This is a tight window — if Mazzy wakes late from her first nap, skip Oxbow and just do the river gravel bar at Confluence; that's 45 minutes and still a win</li>
-              <li>Wear Easter-adjacent clothes OR plan a 10-minute outfit swap at home before 12:45 departure to Nana's</li>
-              <li>No food/coffee stop built in — eat breakfast before you leave; this is purely a movement mission</li>
-              <li>River is still cold in early April; Odie should NOT wade in regardless of enthusiasm (flag this proactively)</li>
-              <li>Parking: free lot off 15th &amp; Platte St, almost always open Sunday mornings</li>
+              <li><a href="https://www.dmns.org/visit/tickets/" target="_blank" rel="noopener">Buy tickets online in advance</a> — DMNS sells out on spring Sundays, especially with bad weather driving people indoors</li>
+              <li>Arrive at 9:00 AM (doors open at 9) — lines build by 10:30 AM</li>
+              <li>Carrier strongly preferred over stroller for Mazzy — easier in crowds, better sightlines for her</li>
+              <li>Odie snack bag critical — he'll bonk around 10:30; have something ready to avoid a meltdown mid-Cretaceous</li>
+              <li>Parking garage on Colorado Blvd side is easiest; street parking on Montview can work if you arrive early</li>
             </ul>
+          </div>
+          <div class="weather-gate-block">
+            <div class="weather-gate-label">&#9729; Weather Gate</div>
+            <p class="weather-gate-text">RISKY — This is a fully indoor plan. Rain is irrelevant. A TOUGH Saturday actually makes Sunday's indoor window feel good. If the Sunday afternoon window opens up post-nap, tack on a walk around <a href="https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Parks-Recreation/Parks/Find-a-Park/City-Park" target="_blank" rel="noopener">City Park Lake</a> (just outside the museum) for 30 min.</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="mission-panel basecamp">
-      <div class="mission-header basecamp">
+    <div class="mission-panel stretch">
+      <div class="mission-header stretch">
         <div>
-          <div class="mission-type-label">Mission 3 — Base Camp Mode</div>
-          <div class="mission-name">Backyard Chalk City + Farmer's Market Bagels</div>
+          <div class="mission-type-label">Mission 3 — Adventure Stretch</div>
+          <div class="mission-name">Clear Creek Canyon — Odie's First Gorge Run at Tunnel 1 Picnic Area</div>
         </div>
         <div class="mission-badge">
           <svg viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
@@ -252,28 +282,42 @@
           <span class="mission-badge-num">3</span>
         </div>
       </div>
+      <div class="commit-row"><span class="commit-badge badge-neutral"><span class="commit-label">Lift</span> MEDIUM-HIGH</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Drive</span> ADVENTURE STRETCH</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Duration</span> 3.5–4 hrs (including drive)</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Pack</span> MEDIUM (day pack, snacks, layers, carrier for Mazzy)</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Nap Fit</span> TIGHT — Depart by 12:00–12:15 PM to be home by 1 PM nap. This requires discipline on turnaround time. The canyon is seductive — set a phone alarm for 11:45 AM departure.</span>
+          <span class="commit-badge badge-amber"><span class="commit-label">Bailout</span> MODERATE</span>
+          <span class="commit-badge badge-neutral"><span class="commit-label">Solo Parent</span> YES — but easier with two. Canyon trail is wide and well-maintained at the Tunnel 1 section.</span></div>
       <div class="mission-meta">
-          <div class="meta-tag"><span class="meta-tag-label">When</span> Saturday OR Sunday, 8:30–10:00 AM (pre-nap window, or wrap it up whenever energy allows)</div>
-          <div class="meta-tag"><span class="meta-tag-label">Where</span> Home backyard / immediate neighborhood + <a href="https://www.coloradofarmers.org/cherry-creek-farmers-market/" target="_blank" rel="noopener">Cherry Creek Farmers Market</a> if you want a 20-minute errand</div>
-          <div class="meta-tag"><span class="meta-tag-label">Cost</span> $0–$18 (bagels, coffee, maybe a bunch of tulips)</div>
+          <div class="meta-tag"><span class="meta-tag-label">When</span> Sunday, 9:00 AM–12:30 PM (depart 8:30 AM to maximize canyon time)</div>
+          <div class="meta-tag"><span class="meta-tag-label">Where</span> <a href="https://www.jeffco.us/1048/Clear-Creek-Canyon-Park" target="_blank" rel="noopener">Clear Creek Canyon — Tunnel 1 / Mayhem Gulch Picnic Area</a> — Clear Creek Canyon, Jefferson County Open Space</div>
+          <div class="meta-tag"><span class="meta-tag-label">Drive</span> 38–42 min from Capitol Hill</div>
+          <div class="meta-tag"><span class="meta-tag-label">Cost</span> Free (Jefferson County Open Space — no entry fee)</div>
       </div>
       <div class="mission-body">
         <div>
           <div class="section-kicker">The Plan</div>
-          <p class="plan-text">Pull out the bucket of sidewalk chalk and tell Odie he's the City Planner — his job is to draw roads, parking lots, and buildings on the back patio while you drink coffee and Mazzy does tummy time on a blanket in the morning sun. If anyone has legs by 9:00 AM, it's a 6-minute drive to the <a href="https://www.coloradofarmers.org/cherry-creek-farmers-market/" target="_blank" rel="noopener">Cherry Creek Farmers Market</a> (open Saturdays year-round, 8 AM–1 PM) to grab bagels from one of the vendors and let Odie gawk at the flower stalls. Be home before 9:30 for Mazzy's nap and consider the morning a clean win.</p>
+          <p class="plan-text">Depart Capitol Hill at 8:30 AM, arrive <a href="https://www.jeffco.us/1048/Clear-Creek-Canyon-Park" target="_blank" rel="noopener">Clear Creek Canyon — Tunnel 1 picnic area</a> by 9:10 AM. Odie's job: Canyon Geologist and Creek Sound Scout — his mission is to find the loudest spot where the creek is crashing and stand there. The <a href="https://www.jeffco.us/1048/Clear-Creek-Canyon-Park" target="_blank" rel="noopener">Clear Creek trail</a> at this section runs right alongside the creek through a tight red granite gorge with real walls overhead, which reads as a completely different world from anything in the recent archive. Let Odie run 0.75–1 mile out along the creek path (flat, wide, paved trail section near Tunnel 1), throw rocks, climb on the canyon boulders at the edge, and narrate everything he sees. Mazzy rides in the carrier — the gorge acoustics and moving water are excellent sensory input for her. Turn around by 11:00–11:15 AM, back to car by 11:45, home by 12:25 — tight but doable.</p>
         </div>
         <div>
           <div class="section-kicker">Why This Weekend</div>
-          <p class="why-text">Both days have real afternoon commitments — a memorial Saturday, Easter plus a hockey game Sunday — which means the family's social and emotional bandwidth is already committed. Base Camp isn't giving up; it's recognizing that two big afternoon events in one weekend means the mornings are better spent relaxed and unhurried. Chalk City costs nothing, packs nothing, and still gives Odie a structured creative job.</p>
+          <p class="why-text">After a Saturday of rain, Clear Creek will be running HIGH and fast on Sunday — the creek noise and energy will be genuinely dramatic, which makes this a completely different experience than a normal spring creek walk. Odie has been near rivers recently (South Platte in the archive) but a tight canyon with canyon walls, a loud roaring creek, and a tunnel to run through is a legitimately new concept cluster. This is the one worth doing if Sunday morning looks clear by 8 AM.</p>
         </div>
         <div class="logistics-block">
           <div>
             <div class="section-kicker">Logistics</div>
             <ul class="logistics-list">
-              <li>Chalk bin should already be in the garage; if not, <a href="https://www.target.com/store-locator/find-stores/CO/Denver" target="_blank" rel="noopener">Target on Broadway</a> has Crayola sidewalk chalk for $6</li>
-              <li>Cherry Creek Farmers Market runs Saturdays through December — no need to check if it's open</li>
-              <li>If Mazzy had a rough night, skip the market entirely; the patio version works on zero sleep and zero effort</li>
+              <li>Check creek conditions Saturday evening — <a href="https://waterdata.usgs.gov/monitoring-location/06719505/" target="_blank" rel="noopener">USGS Clear Creek gauge at Golden</a> will show real-time flow; anything over 500 cfs means keep creek distance; 200–400 cfs post-rain is exciting but safe with appropriate distance</li>
+              <li>Pack: layers (canyon stays cool even at 75°F ambient), snacks, water, carrier for Mazzy, Odie's shoes with grip (no sandals)</li>
+              <li>Set a hard 11:45 AM departure alarm — the canyon is beautiful and you will want to stay; the nap constraint is real</li>
+              <li>No facilities at Tunnel 1 picnic area — bring water, bring a snack, plan accordingly</li>
+              <li>If weather looks marginal Sunday morning, decide by 8:15 AM — don't leave late and rush the turnaround</li>
             </ul>
+          </div>
+          <div class="weather-gate-block">
+            <div class="weather-gate-label">&#9729; Weather Gate</div>
+            <p class="weather-gate-text">RISKY — Sunday's 29% rain chance is workable for a canyon trip; Clear Creek Canyon walls provide natural wind shelter and the canyon dries faster than open terrain. If it's actively raining at 8:30 AM, cancel this one — wet canyon rock with a toddler is not the move. Fallback: DMNS (Mission 2) or the <a href="https://www.mnhm.org/" target="_blank" rel="noopener">Morrison Natural History Museum</a> (30 min, $6/person, genuine fossils, right-size for Odie).</p>
           </div>
         </div>
       </div>
@@ -289,20 +333,26 @@
         <div class="command-card">
           <div class="command-card-accent"></div>
           <div class="command-card-label">Best Overall</div>
-          <div class="command-card-pick">Mission 1</div>
-          <div class="command-card-why">Washington Park on Saturday morning is the sweet spot. The weather is perfect, the calendar gives you a clean 2-hour window before Mazzy's nap, and the whole thing wraps well before the Dave Cease Memorial with zero logistical complexity.</div>
+          <div class="command-card-pick">Mission 2 (DMNS</div>
+          <div class="command-card-why">Prehistoric Journey) — Weather-proof, dinosaur-perfect for Odie, stimulating for Mazzy, clean nap fit, and not in the recent archive.</div>
         </div>
         <div class="command-card">
           <div class="command-card-accent"></div>
-          <div class="command-card-label">Lowest Lift</div>
-          <div class="command-card-pick">Mission 3</div>
-          <div class="command-card-why">Chalk City doesn't require anyone to put on real pants or find parking, and it still gives Odie a genuine job and Mazzy some outdoor air.</div>
+          <div class="command-card-label">Easiest Win</div>
+          <div class="command-card-pick">Mission 1 (Garfield Lake + Harvard Gulch)</div>
+          <div class="command-card-why">Zero cost, 12-min drive, no booking, no pack complexity, genuinely fun post-rain water flow for Odie.</div>
         </div>
         <div class="command-card">
           <div class="command-card-accent"></div>
-          <div class="command-card-label">Best for Odie</div>
-          <div class="command-card-pick">Mission 1</div>
-          <div class="command-card-why">Duck counting, running the grass flats, and a muffin at Wash Perk is a legitimately great Saturday for a 3.5-year-old.</div>
+          <div class="command-card-label">Stretch Adventure</div>
+          <div class="command-card-pick">Mission 3 (Clear Creek Canyon)</div>
+          <div class="command-card-why">A roaring post-rain canyon creek is a legitimately different experience from anything recent; worth the 40-min drive if Sunday morning is clear.</div>
+        </div>
+        <div class="command-card">
+          <div class="command-card-accent"></div>
+          <div class="command-card-label">Solo Parent</div>
+          <div class="command-card-pick">Mission 2 (DMNS)</div>
+          <div class="command-card-why">Controlled indoor environment, stroller/carrier friendly, easy bailout if Mazzy needs a feed, no terrain risk.</div>
         </div>
       </div>
     </div>
