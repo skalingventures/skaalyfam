@@ -113,10 +113,10 @@
         <div class="card-body">
           <div class="card-icon">&#9889;</div>
           <div class="card-type t-turq">Family Alerts</div>
-          <div class="card-title">2 sitter gaps</div>
-          <div class="card-desc">4 disruptions flagged</div>
+          <div class="card-title"><!--WEEK_TITLE-->3 action items<!--/WEEK_TITLE--></div>
+          <div class="card-desc"><!--WEEK_DESC-->1 disruption flagged<!--/WEEK_DESC--></div>
           <div class="card-meta">
-            <span class="card-date d-turq">March 30 – April 5, 2026</span>
+            <span class="card-date d-turq"><!--WEEK_DATE-->April 13–19, 2026<!--/WEEK_DATE--></span>
             <span class="card-arrow">&rarr;</span>
           </div>
         </div>
@@ -127,10 +127,10 @@
         <div class="card-body">
           <div class="card-icon">🎯</div>
           <div class="card-type t-coral">Weekend Missions</div>
-          <div class="card-title">Cheesman Park Duck Lap + Botanic Gardens Edge Walk</div>
-          <div class="card-desc">Top pick: Mission 1</div>
+          <div class="card-title"><!--WEEKEND_TITLE-->Odie's Truck &amp; Terrain Lab — Garfield Lake + Bayer Median Ditch Walk<!--/WEEKEND_TITLE--></div>
+          <div class="card-desc"><!--WEEKEND_DESC-->Top pick: Mission 2 (DMNS<!--/WEEKEND_DESC--></div>
           <div class="card-meta">
-            <span class="card-date d-coral">March 28–29, 2026</span>
+            <span class="card-date d-coral"><!--WEEKEND_DATE-->April 11–12, 2026<!--/WEEKEND_DATE--></span>
             <span class="card-arrow">&rarr;</span>
           </div>
         </div>
@@ -141,10 +141,10 @@
         <div class="card-body">
           <div class="card-icon">🦖</div>
           <div class="card-type t-avocado">Odie's Menu</div>
-          <div class="card-title">7 activities loaded</div>
-          <div class="card-desc">Top pick: Puddle Science Walk at Westerly Creek Greenway</div>
+          <div class="card-title"><!--ODIE_TITLE-->7 activities loaded<!--/ODIE_TITLE--></div>
+          <div class="card-desc"><!--ODIE_DESC-->Top pick: Laundry Sorter Boss<!--/ODIE_DESC--></div>
           <div class="card-meta">
-            <span class="card-date d-avocado">March 30–April 5, 2026</span>
+            <span class="card-date d-avocado"><!--ODIE_DATE-->April 13–19, 2026<!--/ODIE_DATE--></span>
             <span class="card-arrow">&rarr;</span>
           </div>
         </div>
@@ -155,10 +155,10 @@
         <div class="card-body">
           <div class="card-icon">🌸</div>
           <div class="card-type t-plum">Mazzy's Menu</div>
-          <div class="card-title">5 activities loaded</div>
-          <div class="card-desc">Top pick: Supported Sit with Treasure Basket</div>
+          <div class="card-title"><!--MAZZY_TITLE-->5 activities loaded<!--/MAZZY_TITLE--></div>
+          <div class="card-desc"><!--MAZZY_DESC-->Top pick: Supported Sit with Moving Target<!--/MAZZY_DESC--></div>
           <div class="card-meta">
-            <span class="card-date d-plum">March 30–April 5, 2026</span>
+            <span class="card-date d-plum"><!--MAZZY_DATE-->April 13–19, 2026<!--/MAZZY_DATE--></span>
             <span class="card-arrow">&rarr;</span>
           </div>
         </div>
@@ -171,8 +171,24 @@
     <div class="col-brand">SKAALY FAM</div>
     <div class="col-tagline">Week Ahead &middot; Sun &nbsp;|&nbsp; Weekend Missions &middot; Wed &nbsp;|&nbsp; Kids Menus &middot; Sun</div>
     <div class="col-url">skaalyfam.com</div>
+    <div style="margin-top:12px"><button onclick="exportFeedback()" style="font:500 9px var(--fm);letter-spacing:2px;text-transform:uppercase;background:none;border:1px solid rgba(28,20,16,.12);color:var(--muted);padding:4px 14px;cursor:pointer;opacity:.5;transition:opacity .15s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='.5'">Export Feedback</button></div>
   </div>
 
 </div>
+<script>
+function exportFeedback(){
+  var fb={};
+  for(var i=0;i<localStorage.length;i++){
+    var k=localStorage.key(i);
+    if(k.startsWith('sf_fb_'))fb[k]=localStorage.getItem(k);
+  }
+  if(!Object.keys(fb).length){alert('No feedback recorded yet.');return}
+  var blob=new Blob([JSON.stringify(fb,null,2)],{type:'application/json'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='skaalyfam_feedback_'+new Date().toISOString().slice(0,10)+'.json';
+  a.click();
+}
+</script>
 </body>
 </html>
