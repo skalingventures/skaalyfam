@@ -59,6 +59,36 @@
 
     .activity-tags{display:flex;gap:6px;padding:8px 16px 12px;flex-wrap:wrap}
     .activity-tag{font-family:'Oswald',sans-serif;font-weight:500;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;background:rgba(28,20,16,.04);border:1px solid rgba(28,20,16,.08)}
+
+    /* archive cache */
+    .cache-section{margin-top:32px;padding-top:24px;border-top:2px dashed rgba(28,20,16,.12)}
+    .cache-header{text-align:center;margin-bottom:16px}
+    .cache-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(28,20,16,.3)}
+    .cache-title{font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(28,20,16,.4);margin-top:4px}
+    .cache-group{margin-bottom:8px;border:2px solid rgba(28,20,16,.06);background:var(--warm-white)}
+    .cache-group[open]{border-color:rgba(28,20,16,.1)}
+    .cache-group-summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;font-family:'Oswald',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;user-select:none}
+    .cache-group-summary::-webkit-details-marker{display:none}
+    .cache-group-summary::before{content:'▸';margin-right:8px;font-size:10px;transition:transform .15s}
+    .cache-group[open] .cache-group-summary::before{transform:rotate(90deg)}
+    .cache-group-label{padding:2px 8px;clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%)}
+    .cache-group-count{font-size:10px;color:rgba(28,20,16,.35);font-weight:500}
+    .cache-group-cards{padding:8px 12px 12px;display:flex;flex-direction:column;gap:8px}
+    .cache-card{background:rgba(28,20,16,.015);border:1.5px solid rgba(28,20,16,.06);padding:10px 14px;opacity:.85}
+    .cache-card-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+    .cache-card-meta{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:1px;color:rgba(28,20,16,.3);display:flex;align-items:center;gap:6px}
+    .fb-badge{font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:1px 6px;border:1px solid rgba(28,20,16,.1)}
+    .fb-loved{background:rgba(122,140,63,.12);border-color:rgba(122,140,63,.3);color:var(--avocado)}
+    .fb-good{background:rgba(42,191,191,.1);border-color:rgba(42,191,191,.25);color:#1A9090}
+    .fb-skip{background:rgba(232,85,62,.06);border-color:rgba(232,85,62,.15);color:rgba(232,85,62,.6)}
+    .fb-neutral{background:rgba(28,20,16,.03);border-color:rgba(28,20,16,.08)}
+
+    /* feedback buttons */
+    .fb-row{display:inline-flex;gap:4px;margin-left:auto}
+    .fb-btn{background:none;border:1.5px solid rgba(28,20,16,.08);width:28px;height:28px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;opacity:.45;transition:all .15s;padding:0;line-height:1}
+    .fb-btn:hover{opacity:.8;border-color:rgba(28,20,16,.2)}
+    .fb-btn.active{opacity:1;border-color:var(--avocado);background:rgba(122,140,63,.1)}
+    .fb-btn.fb-down.active{border-color:var(--coral);background:rgba(232,85,62,.08)}
   </style>
 </head>
 <body>
@@ -75,7 +105,7 @@
       <div class="page-eyebrow">Auto-generated Sunday evening</div>
       <div class="page-title">ODIE'S MENU</div>
     </div>
-    <div class="menu-theme">Odie's got a job to do — dig, build, run, and be in charge of something real this week.</div>
+    <div class="menu-theme">Big jobs, big moves, and a few things to figure out — Odie runs the show this week.</div>
 
     <div class="activity-grid">
       
@@ -83,14 +113,14 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">1</div>
-            <div class="activity-title">Herb Pot Boss</div>
+            <div class="activity-title">Laundry Sorter Boss</div>
           </div>
           <span class="activity-category cat-practical">PRACTICAL LIFE</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Give Odie a small pot, a cup of potting soil, and basil or mint seeds (or seedlings from King Soopers). His job: scoop soil, press seeds in, water with a squeeze bottle, label the pot with a sticker or crayon. Park the pot in a sunny window and make it his to water every morning — give him the bottle and step back.</div>
-          <div class="activity-why">Montessori practical life work — care of the environment — builds executive function by creating a repeatable, child-owned responsibility loop rather than a one-time task. <a href="https://www.montessorialbum.com/montessori/index.php/Care_of_a_Plant" target="_blank" rel="noopener">Montessori care of plants guide</a></div>
-          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-amber">Mess: MEDIUM</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: household basics</span></div>
+          <div class="activity-desc">Hand Odie a laundry basket and give him one real job: sort the clean clothes into three piles — his stuff, grown-up stuff, and towels/misc. Name each item as he tosses it. Once sorted, he delivers his pile to his room and puts socks in the drawer. This is a genuine household contribution, not theater — he can feel the difference.</div>
+          <div class="activity-why">Montessori practical life research shows that real household tasks build executive function (categorization, sequencing) and intrinsic motivation far more effectively than pretend chores — the <a href="https://www.montessori.com/practical-life-exercises/" target="_blank" rel="noopener">Montessori practical life framework</a> calls this "purposeful work." https://www.montessori.com/practical-life-exercises/</div>
+          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: household basics</span></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
@@ -101,14 +131,14 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">2</div>
-            <div class="activity-title">Dino Stomp Relay</div>
+            <div class="activity-title">Lot Obstacle Relay — Cones & Bases Edition</div>
           </div>
           <span class="activity-category cat-gross">GROSS MOTOR</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Set up 5 "dinosaur zones" in the lot or backyard — each marked with a rock, chalk circle, or cardboard scrap. Call out a dino name and movement: "T-Rex stomps to zone 3!" or "Brachiosaurus walks slooowly to zone 1!" Let him invent his own rules after two rounds. Add a soccer ball or Hot Wheels car as a prop to carry between zones if he needs more challenge.</div>
-          <div class="activity-why">Locomotor variety (stomping, tiptoeing, lumbering) builds coordination and body-scheme awareness; the rule-making in the second round stretches early executive function and self-regulation. <a href="https://www.cdc.gov/ncbddd/actearly/milestones/milestones-3yr.html" target="_blank" rel="noopener">Gross motor development at 3–4 years, CDC</a></div>
-          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: lot / household basics</span></div>
+          <div class="activity-desc">Set up a five-stop course on the street lot using whatever you have: a soccer cone, a chalk circle, a cardboard "leap pad," a baseball base, and a finish line. Call out the route — "run to the cone, jump the pad, touch the base, SPRINT home!" — then race him. Swap who calls it. Add complexity by adding a ball carry or a backwards segment.</div>
+          <div class="activity-why">Sequencing a multi-step motor course activates Vygotsky's <a href="https://www.simplypsychology.org/zone-of-proximal-development.html" target="_blank" rel="noopener">zone of proximal development</a> — the child must hold the route in working memory while executing movement, scaffolding early executive function. https://www.simplypsychology.org/zone-of-proximal-development.html</div>
+          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-amber">Parent Energy: MEDIUM</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: lot / household basics / soccer / baseball</span></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">HIGH</span> <span class="activity-tag">OUTDOOR</span>
@@ -119,14 +149,14 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">3</div>
-            <div class="activity-title">Dino Rescue Station</div>
+            <div class="activity-title">Stuffie Hospital — Dr. Odie Is In</div>
           </div>
           <span class="activity-category cat-imaginative">IMAGINATIVE PLAY</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Use a cardboard box as the "rescue hospital." Odie's job: dinosaurs have been hurt (he assigns the injuries — let him lead). He wraps them in toilet paper bandages, makes a bed from a folded towel, and narrates what happened. You play the worried dino owner calling in to check on patients. Keep your role minimal — one or two questions, then let him run it.</div>
-          <div class="activity-why"><a href="https://www.goodinside.com/blog/the-importance-of-play/" target="_blank" rel="noopener">Dr. Becky Kennedy's framework</a> — dramatic play where the child controls the narrative builds felt safety and develops Theory of Mind (understanding that others have needs and feelings different from one's own). <a href="https://www.zerotothree.org/resource/understanding-theory-of-mind/" target="_blank" rel="noopener">Theory of Mind in preschoolers, Zero to Three</a></div>
-          <div class="op-chips"><span class="op-chip chip-red">Duration: 30+ MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: dinosaurs / household basics</span></div>
+          <div class="activity-desc">Set up a "hospital ward" on the couch with two stuffies who are injured (one has a "broken leg" wrapped in a hair tie, one has a "tummy ache"). Odie is the doctor. Supply him with real items: a wooden spoon as a stethoscope, a measuring tape, a small cup of water as "medicine." Let him diagnose and treat without direction — step back, observe, and only narrate if he invites you in.</div>
+          <div class="activity-why"><a href="https://www.goodinside.com/blog/the-power-of-play/" target="_blank" rel="noopener">Dr. Becky Kennedy's Good Inside framework</a> identifies caretaking play as a key vehicle for children to process experiences and build empathy — Dr. Odie is simultaneously practicing narrative sequencing and emotional attunement. https://www.goodinside.com/blog/the-power-of-play/</div>
+          <div class="op-chips"><span class="op-chip chip-red">Duration: 30+ MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: stuffies / household basics</span></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
@@ -137,17 +167,17 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">4</div>
-            <div class="activity-title">Tape Town for Hot Wheels</div>
+            <div class="activity-title">Tape-and-Build Dino Trap</div>
           </div>
           <span class="activity-category cat-fine">FINE MOTOR</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Use painter's tape or masking tape to build a road system on the kitchen floor or a large piece of cardboard. Add a tape "bridge" over a pillow (tunnel effect), a parking lot grid, and a gas station made from a toilet paper roll. Hand Odie the tape dispenser and let him extend the town himself — show him once how to tear and press, then it's his city.</div>
-          <div class="activity-why">Pulling, tearing, and pressing tape while planning the layout is squarely in Vygotsky's ZPD for 3.5-year-olds — it requires coordinating fine motor control, spatial reasoning, and sequential thinking simultaneously. <a href="https://theimaginationtree.com/tape-road-town-play/" target="_blank" rel="noopener">Tape roads for toddlers, The Imagination Tree</a></div>
-          <div class="op-chips"><span class="op-chip chip-red">Duration: 30+ MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: Hot Wheels / household basics</span></div>
+          <div class="activity-desc">Give Odie a chunk of cardboard, a roll of painter's tape, and a handful of dinosaurs. The mission: build a trap so the big carnivores can't escape the herbivores. He designs the walls, tapes them together, and tests whether his dinos fit through. Resist solving the structural problems for him — narrate instead: "That wall keeps falling — what could you add to hold it?"</div>
+          <div class="activity-why">Open-ended construction with tape and cardboard sits squarely in Vygotsky's ZPD and builds <a href="https://pathways.org/growth-development/3-4-years/fine-motor/" target="_blank" rel="noopener">fine motor precision</a> (tearing tape, pressing, folding) alongside causal reasoning — "if I add this, then that will happen." https://pathways.org/growth-development/3-4-years/fine-motor/</div>
+          <div class="op-chips"><span class="op-chip chip-red">Duration: 30+ MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: dinosaurs / cardboard / tape / household basics</span></div>
         </div>
         <div class="activity-tags">
-          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          <span class="activity-tag">MEDIUM</span> <span class="activity-tag">INDOOR</span>
         </div>
       </div>
 
@@ -155,14 +185,14 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">5</div>
-            <div class="activity-title">Sidewalk Puddle Physics (Post-Saturday Rain)</div>
+            <div class="activity-title">Sidewalk Bug Census</div>
           </div>
-          <span class="activity-category cat-creative">NATURE / SCIENCE</span>
+          <span class="activity-category cat-nature">NATURE</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">After Saturday's rain, head to the lot or sidewalk with a stick and a cup. Find puddles — test depth with the stick, drag channels between puddles to make water flow, drop pebbles in to watch splashing. Name it: "You're an engineer — you're figuring out how water moves." Bring Mazzy in her carrier so she gets airtime too.</div>
-          <div class="activity-why">Unstructured water-and-loose-parts play is the core forest school modality — it develops scientific inquiry habits (observation, hypothesis, testing) in their most natural, intrinsically motivated form. <a href="https://www.ltl.org.uk/knowledge-bank/loose-parts-play/" target="_blank" rel="noopener">Forest school loose parts play, Learning Through Landscapes</a></div>
-          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-amber">Mess: MEDIUM</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: lot / household basics</span></div>
+          <div class="activity-desc">Grab a piece of paper and a crayon and walk the block together on a warm evening. Odie is the Census Taker — every bug, worm, beetle, or ant gets a tally mark. Draw a rough picture of the weirdest one. Count total finds at the end. Talk about where bugs live and why they come out when it's warm ("they were hiding from the cold winter!"). April in Denver means roly-polies and worms are back.</div>
+          <div class="activity-why">Naturalist observation builds <a href="https://www.naeyc.org/resources/pubs/yc/mar2019/science-inquiry-early-childhood" target="_blank" rel="noopener">scientific inquiry habits</a> at exactly the age children begin asking "why" — the clipboard/job framing gives Odie the authority he needs to stay focused on a slower-paced activity. https://www.naeyc.org/resources/pubs/yc/mar2019/science-inquiry-early-childhood</div>
+          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: household basics / lot</span></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">MEDIUM</span> <span class="activity-tag">OUTDOOR</span>
@@ -173,14 +203,14 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">6</div>
-            <div class="activity-title">Play-Dough Fossil Lab</div>
+            <div class="activity-title">Lovevery Stacking Puzzle Remix</div>
           </div>
           <span class="activity-category cat-creative">CREATIVE</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Flatten a ball of play-dough into a slab. Press in a plastic dinosaur foot or whole body to make a "fossil." Then make impressions of other household objects — fork tines, a coin, a leaf from outside, his own thumb. Ask: "Which dino made this footprint? How big was it?" Let him be the paleontologist naming each discovery.</div>
-          <div class="activity-why">Creating and interpreting representations (this mark = that animal) is early symbolic thinking — the same cognitive engine that later powers reading and math, now running through dino obsession. <a href="https://www.naeyc.org/resources/pubs/yc/may2018/symbolic-play-literacy" target="_blank" rel="noopener">Symbolic play and early literacy, NAEYC</a></div>
-          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-amber">Mess: MEDIUM</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: play dough / dinosaurs / household basics</span></div>
+          <div class="activity-desc">Pull out a Lovevery stacking or puzzle set and flip the challenge: Odie builds a tower or arrangement, then YOU have to follow his design exactly while he watches and corrects you. "No, the blue one goes HERE." He's the expert, you're the student. When you "mess up" on purpose, let him coach you through it.</div>
+          <div class="activity-why">Role reversal in play is a <a href="https://www.goodinside.com/podcast/" target="_blank" rel="noopener">Dr. Becky Kennedy-endorsed strategy</a> for building a child's sense of competence and authority — and for a kid who needs to "be in charge," it meets that drive in a constructive, connected way. https://www.goodinside.com/podcast/</div>
+          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-green">Parent Energy: LOW</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: Lovevery</span></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
@@ -191,21 +221,46 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">7</div>
-            <div class="activity-title">Lot Baseball — "Coach Odie" Edition</div>
+            <div class="activity-title">Squirt Gun Distance Science</div>
           </div>
           <span class="activity-category cat-gross">GROSS MOTOR</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">At the street lot, flip the dynamic: Odie is the coach. He sets up the bases (rocks, shoes, whatever), decides the rules, and pitches to you. Use the soft baseball and a wide stance. When he bats, use the Tee if you have it, or slow-roll pitches. Let him make up rules mid-game — "that one doesn't count" is developmentally fine. Play 15–20 minutes and call it on a win.</div>
-          <div class="activity-why">Child-led sports play builds autonomy and self-efficacy in ways adult-directed games can't — when the child controls the rules, they're practicing metacognition and flexible thinking, not just motor skills. <a href="https://publications.aap.org/pediatrics/article/119/1/182/70699/The-Importance-of-Play-in-Promoting-Healthy-Child" target="_blank" rel="noopener">Child-led play and self-efficacy, American Academy of Pediatrics</a></div>
-          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-green">Mess: LOW</span> <span class="op-chip chip-amber">Parent Energy: MEDIUM</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: baseball / lot</span></div>
+          <div class="activity-desc">Take the squirt guns to the lot or the sidewalk. Mark a starting line with chalk. First challenge: who can shoot the farthest? Second challenge: can Odie hit a chalk circle target 5 feet away? Third: make a mud puddle by soaking one chalk square repeatedly. Introduce the question: "Does squirting higher or lower make it go farther?" Let him experiment without demonstrating the "right" answer.</div>
+          <div class="activity-why">Water play with a testable question is a <a href="https://earlychildhoodscience.org/" target="_blank" rel="noopener">classic early science scaffold</a> — children at 3.5 are developmentally primed for cause-and-effect reasoning, and the physical feedback (wet = hit, dry = miss) makes abstract concepts concrete and immediately rewarding. https://earlychildhoodscience.org/</div>
+          <div class="op-chips"><span class="op-chip chip-amber">Duration: 20 MIN</span> <span class="op-chip chip-green">Setup: LOW</span> <span class="op-chip chip-amber">Mess: MEDIUM</span> <span class="op-chip chip-amber">Parent Energy: MEDIUM</span> <span class="op-chip chip-green">Solo Parent: YES</span> <span class="op-chip chip-neutral">Uses: squirt guns / lot / household basics</span></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">HIGH</span> <span class="activity-tag">OUTDOOR</span>
         </div>
       </div>
     </div>
+
+    ODIE_CACHE_PLACEHOLDER
   </div>
 
+<script>
+function sfFeedback(btn,title,surface,value){
+  var key='sf_fb_'+surface+'_'+title;
+  var cur=localStorage.getItem(key);
+  var row=btn.parentElement;
+  row.querySelectorAll('.fb-btn').forEach(function(b){b.classList.remove('active')});
+  if(cur===value){localStorage.removeItem(key);return}
+  localStorage.setItem(key,value);
+  btn.classList.add('active');
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.activity-card[data-title]').forEach(function(card){
+    var title=card.getAttribute('data-title');
+    var key='sf_fb_odie_'+title;
+    var val=localStorage.getItem(key);
+    if(!val)return;
+    card.querySelectorAll('.fb-btn').forEach(function(b){
+      if(val==='loved'&&b.classList.contains('fb-up'))b.classList.add('active');
+      if(val==='skip'&&b.classList.contains('fb-down'))b.classList.add('active');
+    });
+  });
+});
+</script>
 </body>
 </html>

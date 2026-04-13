@@ -48,6 +48,36 @@
     .milestone-badge a{color:var(--coral);text-decoration:underline;text-underline-offset:2px}
     .activity-tags{display:flex;gap:6px;padding:8px 16px 12px;flex-wrap:wrap}
     .activity-tag{font-family:'Oswald',sans-serif;font-weight:500;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:2px 8px;background:rgba(28,20,16,.04);border:1px solid rgba(28,20,16,.08)}
+
+    /* archive cache */
+    .cache-section{margin-top:32px;padding-top:24px;border-top:2px dashed rgba(28,20,16,.12)}
+    .cache-header{text-align:center;margin-bottom:16px}
+    .cache-eyebrow{font-family:'Oswald',sans-serif;font-weight:700;font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(28,20,16,.3)}
+    .cache-title{font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(28,20,16,.4);margin-top:4px}
+    .cache-group{margin-bottom:8px;border:2px solid rgba(28,20,16,.06);background:var(--warm-white)}
+    .cache-group[open]{border-color:rgba(28,20,16,.1)}
+    .cache-group-summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;font-family:'Oswald',sans-serif;font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;user-select:none}
+    .cache-group-summary::-webkit-details-marker{display:none}
+    .cache-group-summary::before{content:'▸';margin-right:8px;font-size:10px;transition:transform .15s}
+    .cache-group[open] .cache-group-summary::before{transform:rotate(90deg)}
+    .cache-group-label{padding:2px 8px;clip-path:polygon(4px 0%,100% 0%,calc(100% - 4px) 100%,0% 100%)}
+    .cache-group-count{font-size:10px;color:rgba(28,20,16,.35);font-weight:500}
+    .cache-group-cards{padding:8px 12px 12px;display:flex;flex-direction:column;gap:8px}
+    .cache-card{background:rgba(28,20,16,.015);border:1.5px solid rgba(28,20,16,.06);padding:10px 14px;opacity:.85}
+    .cache-card-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px}
+    .cache-card-meta{font-family:'Oswald',sans-serif;font-size:9px;letter-spacing:1px;color:rgba(28,20,16,.3);display:flex;align-items:center;gap:6px}
+    .fb-badge{font-size:8px;letter-spacing:1px;text-transform:uppercase;padding:1px 6px;border:1px solid rgba(28,20,16,.1)}
+    .fb-loved{background:rgba(122,140,63,.12);border-color:rgba(122,140,63,.3);color:var(--avocado)}
+    .fb-good{background:rgba(42,191,191,.1);border-color:rgba(42,191,191,.25);color:#1A9090}
+    .fb-skip{background:rgba(232,85,62,.06);border-color:rgba(232,85,62,.15);color:rgba(232,85,62,.6)}
+    .fb-neutral{background:rgba(28,20,16,.03);border-color:rgba(28,20,16,.08)}
+
+    /* feedback buttons */
+    .fb-row{display:inline-flex;gap:4px;margin-left:auto}
+    .fb-btn{background:none;border:1.5px solid rgba(28,20,16,.08);width:28px;height:28px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;opacity:.45;transition:all .15s;padding:0;line-height:1}
+    .fb-btn:hover{opacity:.8;border-color:rgba(28,20,16,.2)}
+    .fb-btn.active{opacity:1;border-color:var(--avocado);background:rgba(122,140,63,.1)}
+    .fb-btn.fb-down.active{border-color:var(--coral);background:rgba(232,85,62,.08)}
   </style>
 </head>
 <body>
@@ -64,7 +94,7 @@
       <div class="page-eyebrow">Auto-generated Sunday evening</div>
       <div class="page-title">MAZZY'S MENU</div>
     </div>
-    <div class="menu-theme">Sitting up and reaching out — Mazzy's world is getting wider this week.</div>
+    <div class="menu-theme">Sitting up and reaching out — this week is about intentional grasp, midline crossing, and finding her voice in a noisy house.</div>
 
     <div class="activity-grid">
       
@@ -72,13 +102,13 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">1</div>
-            <div class="activity-title">Supported Sit + Object Reach</div>
+            <div class="activity-title">Supported Sit with Moving Target</div>
           </div>
           <span class="activity-category cat-motor">MOTOR</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Prop Mazzy in a Boppy or between your crossed legs on the floor. Place two or three distinct objects just beyond easy reach — a wooden spoon, a fabric scarf, a board book. Let her lean and reach rather than moving the objects to her. Watch for trunk engagement and mid-body rotation. Narrate what she's doing: "You're reaching for the red spoon — you're working so hard."</div>
-          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/4-6-months/milestones/" target="_blank" rel="noopener">Sitting with support and intentional reaching, Pathways.org — 6 months</a></div>
+          <div class="activity-desc">Prop Mazzy in a supported sit (nursing pillow, Boppy, or against your leg). Hold a brightly colored object — a wooden ring, a sock ball, a silicone spoon — about 10 inches in front of her midline. Slowly move it left, then right, staying within reach range. Watch whether she leans and tracks before reaching. Don't hand it to her — let her close the gap herself. Narrate: "You see it — you're reaching!"</div>
+          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/6-7-months/motor/" target="_blank" rel="noopener">Reaching across the midline — Pathways.org 6-month motor milestones</a></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
@@ -89,13 +119,13 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">2</div>
-            <div class="activity-title">Texture Hand Tour</div>
+            <div class="activity-title">The Drop Game (Object Permanence, Phase 2)</div>
           </div>
-          <span class="activity-category cat-sensory">SENSORY</span>
+          <span class="activity-category cat-cognitive">COGNITIVE</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Gather 5 surfaces from around the house: a silicone pot holder, a dry washcloth, a piece of velvet, a smooth wooden block, a crinkled piece of paper. Lay Mazzy on her back and slowly bring each surface to her open palm and fingers, pausing for her to grip, mouth, or release. Name the feeling: "rough," "soft," "bumpy." Per <a href="https://www.rie.org/educaring/ries-basic-principles/" target="_blank" rel="noopener">Magda Gerber / RIE</a>, no need to entertain — just observe and narrate.</div>
-          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/4-6-months/milestones/" target="_blank" rel="noopener">Hand-to-object exploration, Pathways.org — tactile development</a></div>
+          <div class="activity-desc">Sit Mazzy in your lap or in a supported sit. Hold a small toy (wooden ring, soft block) clearly in front of her, then slowly lower it over the edge of a tray or your knee so it disappears from view. Pause. Watch her eyes — does she look down toward where it went? If yes, bring it back with a "There it is!" This is one step past peek-a-boo — the object vanishes by falling, not by being covered.</div>
+          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/6-7-months/cognitive/" target="_blank" rel="noopener">Object permanence development — Pathways.org cognitive milestones, 6 months</a></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
@@ -106,16 +136,16 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">3</div>
-            <div class="activity-title">Peek-a-Boo with a Scarf (Object Permanence Starter)</div>
+            <div class="activity-title">Warm-Weather Bare Feet on Grass</div>
           </div>
-          <span class="activity-category cat-cognitive">COGNITIVE</span>
+          <span class="activity-category cat-sensory">SENSORY</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Hold a light muslin swaddle or scarf. Slowly drape it over your face — full hide — then pull it down: "Peek-a-boo!" Pause, let her process. After a few rounds, drape it over a favorite toy instead of your face and ask "Where did it go?" Watch her eyes search. Don't rush to reveal — the searching is the learning.</div>
-          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/4-6-months/milestones/" target="_blank" rel="noopener">Object permanence emerging at 6 months, Pathways.org</a></div>
+          <div class="activity-desc">On a mild April afternoon (aim for Tuesday or the weekend when temps are in the 60s), lay a blanket outside and let Mazzy have a few minutes of bare feet on actual grass while you supervise Odie's lot play nearby. Hold her upright so her feet press down and feel the texture — watch the face. Narrate what she's touching: "That's grass — it's scratchy and cool." This is purely about novel sensory input for a baby who's been in socks all winter.</div>
+          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/6-7-months/sensory/" target="_blank" rel="noopener">Sensory integration and tactile exploration — Pathways.org sensory development</a></div>
         </div>
         <div class="activity-tags">
-          <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
+          <span class="activity-tag">LOW</span> <span class="activity-tag">OUTDOOR</span>
         </div>
       </div>
 
@@ -123,13 +153,13 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">4</div>
-            <div class="activity-title">Babble Back Conversation</div>
+            <div class="activity-title">Consonant Copy Game</div>
           </div>
           <span class="activity-category cat-language">LANGUAGE</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">Find a quiet 5-minute window — ideally after a feed when she's alert. Make eye contact, wait for her to babble (ba, da, ga), then copy it back exactly. Pause. Let her respond. Don't flood her with words — this is a serve-and-return conversation. Per <a href="https://developingchild.harvard.edu/science/key-concepts/serve-and-return/" target="_blank" rel="noopener">Harvard Center on the Developing Child</a>, these exchanges build neural pathways faster than passive talk.</div>
-          <div class="milestone-badge">&#128205; <a href="https://www.cdc.gov/ncbddd/actearly/milestones/milestones-6mo.html" target="_blank" rel="noopener">Consonant babbling and social vocalization, CDC 6-month milestones</a></div>
+          <div class="activity-desc">Get face-to-face with Mazzy during an alert, happy window (post-feed, pre-tired). She babbles — you echo back her exact sound: "ba-ba-ba" gets "ba-ba-ba" back. Then add one: she says "ba," you say "ba-ba." Pause and wait. This is <a href="https://developingchild.harvard.edu/science/key-concepts/serve-and-return/" target="_blank" rel="noopener">serve-and-return communication</a> — the foundational loop for language acquisition. The RIE principle here is full presence and no rushing: give her 5–8 seconds to respond before serving again.</div>
+          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/6-7-months/language/" target="_blank" rel="noopener">Babbling and early vocalization — Pathways.org language milestones, 6 months</a></div>
         </div>
         <div class="activity-tags">
           <span class="activity-tag">LOW</span> <span class="activity-tag">INDOOR</span>
@@ -140,20 +170,45 @@
         <div class="activity-card-header">
           <div style="display:flex;align-items:center;">
             <div class="activity-num">5</div>
-            <div class="activity-title">Outdoor Tummy Time on the Lot Blanket</div>
+            <div class="activity-title">Watch Odie Play — Narrated Observation</div>
           </div>
-          <span class="activity-category cat-motor">MOTOR</span>
+          <span class="activity-category cat-social">SOCIAL</span>
         </div>
         <div class="activity-body">
-          <div class="activity-desc">On a mild weekday (Mon/Tue/Thu/Fri look favorable), spread a blanket in the lot or on the sidewalk while Odie runs. Place Mazzy prone, head up, on the blanket. Put a high-contrast board book or Odie's shoe (novel object!) just in front of her at eye level. Let Odie run by — she will track him visually, which doubles as a head-turn and visual tracking exercise. Five to ten minutes is plenty.</div>
-          <div class="milestone-badge">&#128205; <a href="https://pathways.org/growth-development/0-3-months/tummy-time/" target="_blank" rel="noopener">Prone head lifting to 90° and visual tracking, Pathways.org tummy time</a></div>
+          <div class="activity-desc">Position Mazzy in an infant seat or prop her at your hip where she has a clear line of sight to Odie doing something active — obstacle relay, block building, or stuffie hospital. Don't put screens or toys between them. Narrate what Odie is doing as Mazzy watches: "Odie is running — fast! Now he jumped!" Watch Mazzy's face for tracking, kicking, and vocalization in response. Older sibling observation is <a href="https://www.zerotothree.org/resource/learning-from-siblings/" target="_blank" rel="noopener">one of the richest early social learning environments</a> available to a younger child.</div>
+          <div class="milestone-badge">&#128205; <a href="https://www.zerotothree.org/resource/learning-from-siblings/" target="_blank" rel="noopener">Social engagement and shared attention — Zero to Three, 6-month social development</a></div>
         </div>
         <div class="activity-tags">
-          <span class="activity-tag">LOW</span> <span class="activity-tag">OUTDOOR</span>
+          <span class="activity-tag">LOW</span> <span class="activity-tag">EITHER</span>
         </div>
       </div>
     </div>
+
+    MAZZY_CACHE_PLACEHOLDER
   </div>
 
+<script>
+function sfFeedback(btn,title,surface,value){
+  var key='sf_fb_'+surface+'_'+title;
+  var cur=localStorage.getItem(key);
+  var row=btn.parentElement;
+  row.querySelectorAll('.fb-btn').forEach(function(b){b.classList.remove('active')});
+  if(cur===value){localStorage.removeItem(key);return}
+  localStorage.setItem(key,value);
+  btn.classList.add('active');
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.activity-card[data-title]').forEach(function(card){
+    var title=card.getAttribute('data-title');
+    var key='sf_fb_mazzy_'+title;
+    var val=localStorage.getItem(key);
+    if(!val)return;
+    card.querySelectorAll('.fb-btn').forEach(function(b){
+      if(val==='loved'&&b.classList.contains('fb-up'))b.classList.add('active');
+      if(val==='skip'&&b.classList.contains('fb-down'))b.classList.add('active');
+    });
+  });
+});
+</script>
 </body>
 </html>
